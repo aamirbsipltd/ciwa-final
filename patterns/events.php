@@ -15,18 +15,18 @@ $events = array(
 );
 ob_start();
 ?>
-<div class="ciwa-event-grid">
+<div class="ciwa-event-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;max-width:1320px;margin:0 auto">
 <?php foreach ( $events as $e ) : ?>
-	<div class="ciwa-event">
-		<div class="ciwa-event-photo">
-			<img src="<?php echo esc_url( $e['photo'] ); ?>" alt="" />
-			<span class="ciwa-event-day"><?php echo esc_html( $e['day'] ); ?></span>
+	<div class="ciwa-event" style="background:#fff;border-radius:14px;overflow:hidden">
+		<div class="ciwa-event-photo" style="position:relative">
+			<img src="<?php echo esc_url( $e['photo'] ); ?>" alt="" style="width:100%;height:200px;object-fit:cover;display:block" />
+			<span class="ciwa-event-day" style="position:absolute;top:14px;right:14px;width:48px;height:48px;border-radius:50%;background:#e22371;color:#fff;display:grid;place-items:center;font-family:var(--wp--preset--font-family--display);font-size:1.2rem"><?php echo esc_html( $e['day'] ); ?></span>
 		</div>
-		<div class="ciwa-event-body">
-			<p class="ciwa-event-meta"><span class="ciwa-event-meta-ico">&#128197;</span><?php echo esc_html( $e['meta'] ); ?></p>
-			<h3 class="ciwa-event-title"><?php echo $e['title']; ?></h3>
-			<p class="ciwa-event-copy"><?php echo esc_html( $e['body'] ); ?></p>
-			<p class="ciwa-event-more"><a href="#events">Read More &rarr;</a></p>
+		<div class="ciwa-event-body" style="padding:24px">
+			<p class="ciwa-event-meta" style="color:#1a1a1a;font-size:0.85rem;margin:0 0 8px"><span class="ciwa-event-meta-ico" style="color:#e22371;margin-right:6px">&#128197;</span><?php echo esc_html( $e['meta'] ); ?></p>
+			<h3 class="ciwa-event-title" style="font-family:var(--wp--preset--font-family--display);font-size:1.05rem;font-weight:400;color:#1a1a1a;margin:0 0 12px;line-height:1.25;text-transform:uppercase"><?php echo $e['title']; ?></h3>
+			<p class="ciwa-event-copy" style="color:#5b5b66;font-size:0.9rem;line-height:1.5;margin:0 0 14px"><?php echo esc_html( $e['body'] ); ?></p>
+			<p class="ciwa-event-more" style="margin:0"><a href="#events" style="color:#e22371;font-weight:600;font-size:0.95rem;text-decoration:none">Read More &rarr;</a></p>
 		</div>
 	</div>
 <?php endforeach; ?>

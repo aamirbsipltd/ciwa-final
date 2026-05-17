@@ -18,15 +18,25 @@ $programs = array(
 );
 ob_start();
 ?>
-<div class="ciwa-programs-grid">
-<?php foreach ( $programs as $p ) : ?>
-	<div class="ciwa-program ciwa-program-<?php echo esc_attr( $p['col'] ); ?>">
-		<div class="ciwa-program-head">
-			<img class="ciwa-program-icon" src="<?php echo esc_url( $p['icon'] ); ?>" alt="" />
-			<h3 class="ciwa-program-title"><?php echo $p['title']; ?></h3>
+<?php
+$prog_colors = array(
+	'purple' => '#6a1753',
+	'pink'   => '#e22371',
+	'orange' => '#f69538',
+	'coral'  => '#ff6e6e',
+	'olive'  => '#aaa835',
+	'teal'   => '#5bbdad',
+);
+?>
+<div class="ciwa-programs-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:1320px;margin:0 auto">
+<?php foreach ( $programs as $p ) : $bd = $prog_colors[ $p['col'] ] ?? '#6a1753'; ?>
+	<div class="ciwa-program ciwa-program-<?php echo esc_attr( $p['col'] ); ?>" style="background:#fff;border:2px solid <?php echo esc_attr( $bd ); ?>;border-radius:14px;padding:32px 32px 28px">
+		<div class="ciwa-program-head" style="display:flex;align-items:center;gap:18px;margin-bottom:14px">
+			<img class="ciwa-program-icon" src="<?php echo esc_url( $p['icon'] ); ?>" alt="" style="width:54px;height:54px;flex-shrink:0" />
+			<h3 class="ciwa-program-title" style="font-family:var(--wp--preset--font-family--display);font-size:1.65rem;font-weight:400;letter-spacing:-0.01em;color:#1a1a1a;margin:0;line-height:1.15;text-transform:uppercase"><?php echo $p['title']; ?></h3>
 		</div>
-		<p class="ciwa-program-copy"><?php echo esc_html( $p['body'] ); ?></p>
-		<p class="ciwa-program-more"><a href="#programs">Learn More &rarr;</a></p>
+		<p class="ciwa-program-copy" style="color:#1a1a1a;font-size:0.95rem;line-height:1.55;margin:0 0 16px"><?php echo esc_html( $p['body'] ); ?></p>
+		<p class="ciwa-program-more" style="margin:0"><a href="#programs" style="color:<?php echo esc_attr( $bd ); ?>;font-weight:600;font-size:1rem;text-decoration:none">Learn More &rarr;</a></p>
 	</div>
 <?php endforeach; ?>
 </div>
