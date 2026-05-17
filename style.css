@@ -4,7 +4,7 @@ Theme URI:
 Author: Pitch Found
 Author URI:
 Description: Canadian Immigrant Women's Association — block theme converted from Figma by Pitch Found.
-Version: 0.10.5
+Version: 0.11.0
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -3070,4 +3070,148 @@ html, body { overflow-x: clip; }
 	font-size: 0.95rem !important; line-height: 1.55 !important;
 	color: #1a1a1a !important; margin: 0 !important;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+/* ============================================================
+   v0.11.0 — Program-detail pages (shared layout) + Who We Are
+   ============================================================ */
+
+/* ---- PROGRAMS UNDER X (4 program-detail cards) ------------ */
+.ciwa-prog { padding: 80px 32px 64px !important; }
+.ciwa-prog__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.6rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 48px !important;
+}
+.ciwa-prog .ciwa-prog__grid { max-width: 1320px; margin: 0 auto !important; gap: 24px !important; }
+.ciwa-prog-card {
+	background: #fff !important; border: 1px solid #e6dce4;
+	border-left: 6px solid #6a1753; border-radius: 14px;
+	padding: 24px 28px !important;
+	display: flex !important; flex-direction: column !important; gap: 12px !important;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.ciwa-prog-card--purple { border-left-color: #6a1753; }
+.ciwa-prog-card--pink   { border-left-color: #e22371; }
+.ciwa-prog-card--orange { border-left-color: #f68b3c; }
+.ciwa-prog-card--coral  { border-left-color: #ff6e6e; }
+.ciwa-prog-card__icon { margin: 0 !important; }
+.ciwa-prog-card__icon img { width: 36px !important; height: 36px !important; }
+.ciwa-prog-card__title { font-family: var(--wp--preset--font-family--display) !important; font-size: 1.05rem !important; font-weight: 400 !important; color: #1a1a1a !important; margin: 0 !important; text-transform: uppercase; letter-spacing: 0.04em; }
+.ciwa-prog-card--purple .ciwa-prog-card__title { color: #6a1753 !important; }
+.ciwa-prog-card--pink   .ciwa-prog-card__title { color: #e22371 !important; }
+.ciwa-prog-card--orange .ciwa-prog-card__title { color: #f68b3c !important; }
+.ciwa-prog-card--coral  .ciwa-prog-card__title { color: #ff6e6e !important; }
+.ciwa-prog-card__body { font-size: 0.93rem !important; line-height: 1.55 !important; color: #4a4a4a !important; margin: 0 !important; }
+
+/* ---- WHAT YOU GAIN (4 colored benefit cards) -------------- */
+.ciwa-gain { padding: 64px 32px !important; }
+.ciwa-gain__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.4rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 36px !important;
+}
+.ciwa-gain .ciwa-gain__grid { max-width: 1320px; margin: 0 auto !important; gap: 16px !important; }
+.ciwa-gain-card {
+	color: #fff !important; border-radius: 14px;
+	padding: 22px 20px !important; min-height: 130px;
+	display: flex !important; align-items: center !important;
+}
+.ciwa-gain-card--pink   { background: #e22371 !important; }
+.ciwa-gain-card--orange { background: #f68b3c !important; }
+.ciwa-gain-card--purple { background: #6a1753 !important; }
+.ciwa-gain-card--coral  { background: #ff6e6e !important; }
+.ciwa-gain-card__body { color: #fff !important; font-family: var(--wp--preset--font-family--display) !important; font-size: 1rem !important; line-height: 1.4 !important; margin: 0 !important; }
+.ciwa-gain__cta-wrap { margin: 32px auto 0 !important; }
+
+/* ---- DID YOU KNOW? ---------------------------------------- */
+.ciwa-didyou { padding: 64px 32px !important; text-align: center; }
+.ciwa-didyou__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 2.4rem !important; font-weight: 400 !important; color: #6a1753 !important; letter-spacing: -0.02em !important; text-transform: uppercase !important; margin: 0 0 18px !important; }
+.ciwa-didyou__copy { max-width: 1080px; margin: 0 auto 32px !important; font-size: 1.05rem !important; line-height: 1.55 !important; color: #4a4a4a; font-style: italic; }
+.ciwa-didyou__img { max-width: 880px !important; margin: 0 auto !important; }
+.ciwa-didyou__img img { width: 100%; height: auto; border-radius: 14px; display: block; }
+
+/* ---- Program-page UPCOMING EVENTS ------------------------- */
+.ciwa-prog-events { padding: 64px 32px !important; }
+.ciwa-prog-events__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 2.4rem !important; font-weight: 400 !important; color: #6a1753 !important; letter-spacing: -0.02em !important; text-transform: uppercase !important; margin: 0 0 36px !important; }
+.ciwa-prog-events .ciwa-prog-events__grid { max-width: 1320px; margin: 0 auto !important; gap: 24px !important; }
+.ciwa-prog-event {
+	background: #fff !important; border: 1px solid #e6dce4;
+	border-top: 3px solid #e22371; border-radius: 14px;
+	padding: 0 !important; overflow: hidden;
+	display: flex !important; flex-direction: column !important;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.ciwa-prog-event__img { margin: 0 !important; }
+.ciwa-prog-event__img img { width: 100% !important; height: 160px !important; object-fit: cover !important; display: block; }
+.ciwa-prog-event__date, .ciwa-prog-event__title, .ciwa-prog-event__body { padding: 0 22px !important; margin: 0 !important; }
+.ciwa-prog-event__date { padding-top: 18px !important; font-size: 0.78rem !important; letter-spacing: 0.06em; text-transform: uppercase; color: #e22371 !important; }
+.ciwa-prog-event__title { padding-top: 8px !important; font-family: var(--wp--preset--font-family--display) !important; font-size: 1.05rem !important; font-weight: 400 !important; color: #1a1a1a !important; text-transform: uppercase; letter-spacing: 0.02em; }
+.ciwa-prog-event__body { padding: 10px 22px 22px !important; font-size: 0.9rem !important; line-height: 1.5 !important; color: #4a4a4a !important; }
+
+/* ---- Who We Are ------------------------------------------- */
+.ciwa-wwa-intro { padding: 80px 32px !important; }
+.ciwa-wwa-intro__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 3rem !important; font-weight: 400 !important; color: #6a1753 !important; letter-spacing: -0.02em !important; text-transform: uppercase !important; margin: 0 0 24px !important; }
+.ciwa-wwa-intro__body { max-width: 1080px; margin: 0 auto !important; font-size: 1.05rem !important; line-height: 1.7 !important; color: #4a4a4a; }
+
+.ciwa-wwa-history { padding: 80px 32px !important; }
+.ciwa-wwa-history__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 2.6rem !important; font-weight: 400 !important; color: #6a1753 !important; letter-spacing: -0.02em !important; text-transform: uppercase !important; margin: 0 0 40px !important; }
+.ciwa-wwa-history__list { max-width: 1080px; margin: 0 auto !important; display: flex !important; flex-direction: column !important; gap: 16px !important; }
+.ciwa-wwa-history__item {
+	background: #fff !important; border: 1px solid #e6dce4;
+	border-left: 4px solid #6a1753; border-radius: 12px;
+	padding: 20px 24px !important;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.ciwa-wwa-history__year {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 1.4rem !important; font-weight: 400 !important;
+	color: #e22371 !important; margin: 0 0 8px !important;
+	letter-spacing: 0.02em; text-transform: uppercase;
+}
+.ciwa-wwa-history__text { font-size: 0.98rem !important; line-height: 1.6 !important; color: #4a4a4a !important; margin: 0 !important; }
+
+.ciwa-vmv { padding: 80px 32px !important; }
+.ciwa-vmv .ciwa-vmv__grid { max-width: 1320px; margin: 0 auto !important; gap: 24px !important; }
+.ciwa-vmv-card {
+	color: #fff !important; border-radius: 14px;
+	padding: 36px 32px !important; min-height: 200px;
+	display: flex !important; flex-direction: column !important; gap: 12px !important;
+}
+.ciwa-vmv-card--purple { background: #6a1753 !important; }
+.ciwa-vmv-card--orange { background: #f68b3c !important; }
+.ciwa-vmv-card--pink   { background: #e22371 !important; }
+.ciwa-vmv-card__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 1.8rem !important; font-weight: 400 !important; color: #fff !important; margin: 0 !important; letter-spacing: 0.02em; }
+.ciwa-vmv-card__body { color: rgba(255,255,255,0.95) !important; font-size: 1rem !important; line-height: 1.55 !important; margin: 0 !important; }
+
+.ciwa-wwa-facts { padding: 80px 32px !important; }
+.ciwa-wwa-facts__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 2.6rem !important; font-weight: 400 !important; color: #6a1753 !important; letter-spacing: -0.02em !important; text-transform: uppercase !important; margin: 0 0 40px !important; }
+.ciwa-wwa-facts .ciwa-wwa-facts__grid { max-width: 1320px; margin: 0 auto !important; gap: 16px !important; }
+.ciwa-wwa-fact {
+	color: #fff !important; border-radius: 12px;
+	padding: 22px 22px !important; min-height: 140px;
+	display: flex !important; align-items: center !important;
+}
+.ciwa-wwa-fact--pink   { background: #e22371 !important; }
+.ciwa-wwa-fact--orange { background: #f68b3c !important; }
+.ciwa-wwa-fact--purple { background: #6a1753 !important; }
+.ciwa-wwa-fact--coral  { background: #ff6e6e !important; }
+.ciwa-wwa-fact__body { color: #fff !important; font-size: 0.95rem !important; line-height: 1.5 !important; margin: 0 !important; }
+
+.ciwa-wwa-land { padding: 80px 32px !important; }
+.ciwa-wwa-land__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 2.6rem !important; font-weight: 400 !important; color: #fff !important; letter-spacing: -0.02em !important; text-transform: uppercase !important; margin: 0 0 24px !important; }
+.ciwa-wwa-land__body { max-width: 1080px; margin: 0 auto 16px !important; color: rgba(255,255,255,0.92) !important; font-size: 1rem !important; line-height: 1.6 !important; }
+
+@media (max-width: 900px) {
+	.ciwa-prog .ciwa-prog__grid { grid-template-columns: 1fr !important; }
+	.ciwa-gain .ciwa-gain__grid { grid-template-columns: repeat(2, 1fr) !important; }
+	.ciwa-prog-events .ciwa-prog-events__grid { grid-template-columns: 1fr !important; }
+	.ciwa-vmv .ciwa-vmv__grid { grid-template-columns: 1fr !important; }
+	.ciwa-wwa-facts .ciwa-wwa-facts__grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 600px) {
+	.ciwa-gain .ciwa-gain__grid { grid-template-columns: 1fr !important; }
+	.ciwa-wwa-facts .ciwa-wwa-facts__grid { grid-template-columns: 1fr !important; }
 }

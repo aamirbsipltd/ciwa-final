@@ -51,6 +51,12 @@ add_action( 'enqueue_block_editor_assets', 'ciwa_final_enqueue_assets' );
 // Auto-seed 19 WP Pages from Figma text inventories on theme activation.
 require_once get_template_directory() . '/includes/seed-pages.php';
 
+// Shared "program page" template used by all 5 program-detail pages
+// (settlement-supports / employment-skills-training / family-parenting-supports
+// /  language-training / wellness). Each pattern file calls this helper
+// with its own $config.
+require_once get_template_directory() . '/includes/program-page.php';
+
 /**
  * Pages converted to hand-built patterns. For each entry, the seeded
  * WP Page's content is force-replaced with a pattern reference whenever
@@ -72,6 +78,12 @@ function ciwa_final_pattern_pages() {
 		'newsletter'             => 'ciwa-final/newsletter',
 		'volunteer-with-us'      => 'ciwa-final/volunteer-with-us',
 		'awards-recognition'     => 'ciwa-final/awards-recognition',
+		'who-we-are'             => 'ciwa-final/who-we-are',
+		'settlement-supports'    => 'ciwa-final/settlement-supports',
+		'employment-skills-training' => 'ciwa-final/employment-skills-training',
+		'family-parenting-supports'  => 'ciwa-final/family-parenting-supports',
+		'language-training'      => 'ciwa-final/language-training',
+		'language-training-2'    => 'ciwa-final/wellness',
 	);
 }
 function ciwa_final_maybe_migrate_pattern_pages() {
