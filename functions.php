@@ -19,6 +19,14 @@ if ( ! function_exists( 'ciwa_final_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 		add_theme_support( 'title-tag' );
 
+		// Load the theme's frontend stylesheet INSIDE the Gutenberg editor iframe
+		// so blocks render with the same .ciwa-* styling the visitor sees.
+		// Without this, the editor shows unstyled / default-Gutenberg-styled blocks.
+		add_editor_style( array(
+			'https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@300;400;500;600;700&display=swap',
+			'style.css',
+		) );
+
 		register_block_pattern_category(
 			'ciwa-final',
 			array( 'label' => __( 'CIWA', 'ciwa-final' ) )
