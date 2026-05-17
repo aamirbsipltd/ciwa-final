@@ -354,7 +354,6 @@ img { max-width: 100%; height: auto; }
 .ciwa-help-track.wp-block-columns { flex-wrap: nowrap !important; overflow-x: auto; gap: 24px; padding-bottom: 16px; }
 
 /* legacy how-help styling kept */
-.ciwa-help-old-marker {
 .ciwa-help-track.wp-block-columns {
 	flex-wrap: nowrap !important;
 	overflow-x: auto;
@@ -496,7 +495,6 @@ img { max-width: 100%; height: auto; }
 }
 
 /* ─── (legacy block, ignored) ──────────────────────────────────────── */
-.ciwa-welcome-legacy {
 .ciwa-welcome > .wp-block-columns { margin: 0; min-height: 700px; align-items: stretch; gap: 0; }
 .ciwa-welcome > .wp-block-columns > .wp-block-column { padding: 0; min-height: 700px; }
 .ciwa-welcome > .wp-block-columns > .wp-block-column.has-primary-background-color {
