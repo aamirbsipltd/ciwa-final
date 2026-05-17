@@ -294,22 +294,7 @@ img { max-width: 100%; height: auto; }
 	.ciwa-search { flex-basis: 200px; }
 }
 
-/* ─── Hero — cream-left text + full-bleed photo right ─────────────── */
-.ciwa-hero { background: #fafaf0 !important; padding: 0 !important; }
-.ciwa-hero > .ciwa-hero-cols { margin: 0 !important; gap: 0 !important; min-height: 640px; }
-.ciwa-hero .ciwa-hero-text { padding: 80px 60px 80px 96px !important; min-height: 640px; display: flex; flex-direction: column; justify-content: center; }
-.ciwa-hero-title { font-family: var(--wp--preset--font-family--display) !important; font-size: 4.5rem !important; font-weight: 400 !important; line-height: 1.1 !important; letter-spacing: -0.02em !important; margin: 0 0 24px !important; text-transform: uppercase; }
-.ciwa-hero-sub { font-size: 1.15rem !important; line-height: 1.55 !important; max-width: 540px; margin: 0 0 36px !important; color: var(--wp--preset--color--text-muted); }
-.ciwa-hero-ctas { gap: 12px !important; }
-.ciwa-hero-ctas .wp-block-button__link { padding: 16px 28px !important; border-radius: 14px !important; font-family: var(--wp--preset--font-family--display); font-size: 0.95rem; letter-spacing: 0.02em; }
-.ciwa-hero .ciwa-hero-photocol { padding: 0 !important; min-height: 640px; overflow: hidden; }
-.ciwa-hero-photo { margin: 0 !important; height: 100%; width: 100%; }
-.ciwa-hero-photo img { width: 100%; height: 100%; min-height: 640px; object-fit: cover; display: block; border-radius: 0; box-shadow: none; }
-@media (max-width: 1000px) {
-	.ciwa-hero .ciwa-hero-text, .ciwa-hero .ciwa-hero-photocol { min-height: 0; padding: 48px 28px !important; }
-	.ciwa-hero-title { font-size: 3rem !important; }
-	.ciwa-hero-photo img { min-height: 400px; }
-}
+/* Legacy hero rules removed — v0.8.0 hero is wp:cover with full-bleed photo bg + gradient overlay, defined at the bottom of this file. */
 
 /* ─── How Can We Help — clean editable core-block cards ───────────── */
 .ciwa-how-help { padding: 96px 32px 64px; text-align: center; }
@@ -775,23 +760,7 @@ img { max-width: 100%; height: auto; }
 .ciwa-topbar { padding: 12px 24px !important; }
 .ciwa-topbar p { color: #fff !important; font-size: 0.95rem !important; }
 
-/* Hero — match Figma typography precisely */
-.ciwa-hero { background: #fafaf0 !important; }
-.ciwa-hero-title.has-pink-color {
-	font-size: 4.5rem !important;
-	font-weight: 400 !important;
-	letter-spacing: -0.02em !important;
-	line-height: 1.05 !important;
-	margin: 0 0 28px !important;
-	color: var(--wp--preset--color--pink) !important;
-	text-transform: uppercase;
-}
-.ciwa-hero-sub {
-	color: var(--wp--preset--color--text-muted) !important;
-	font-size: 1.1rem !important;
-	line-height: 1.55 !important;
-	margin: 0 0 36px !important;
-}
+/* Legacy hero typography removed — v0.8.0 rules (bottom of file) are authoritative. */
 
 /* ─── How Can We Help — 3-visible slider w/ pink halo arrows + dots ── */
 .ciwa-how-help { padding: 96px 0 80px !important; text-align: center; }
@@ -1243,37 +1212,7 @@ img { max-width: 100%; height: auto; }
    v0.7.0 — pixel-perfect Figma alignment fixes
    ============================================================ */
 
-/* Hero gradient background + tighter heading */
-.ciwa-hero {
-	background: linear-gradient(135deg, #fde9f1 0%, #fafaf0 50%) !important;
-	padding: 60px 32px !important;
-}
-.ciwa-hero-cols { gap: 40px !important; }
-.ciwa-hero-text { flex-basis: 50% !important; max-width: 640px; }
-.ciwa-hero-photocol { flex-basis: 50% !important; }
-.ciwa-hero-title.has-pink-color {
-	font-family: var(--wp--preset--font-family--display) !important;
-	font-size: 4.2rem !important;
-	font-weight: 400 !important;
-	color: #e22371 !important;
-	line-height: 1.05 !important;
-	letter-spacing: -0.02em !important;
-	margin: 0 0 18px !important;
-}
-.ciwa-hero-sub {
-	color: #1a1a1a !important;
-	font-size: 1rem !important;
-	line-height: 1.55 !important;
-	margin: 0 0 28px !important;
-	max-width: 560px;
-}
-.ciwa-hero-ctas .wp-block-button { margin-right: 12px; }
-.ciwa-hero-photo img {
-	width: 100% !important;
-	height: auto !important;
-	border-radius: 18px;
-	display: block;
-}
+/* v0.7.0 hero rules removed — v0.8.0 (bottom of file) is authoritative. */
 
 /* News heading + cards (removed uppercase on titles) */
 .ciwa-news { padding: 80px 32px !important; }
