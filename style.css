@@ -1337,13 +1337,15 @@ img { max-width: 100%; height: auto; }
 	align-items: center !important;
 	justify-content: flex-start !important;
 }
-.wp-block-cover.ciwa-hero::before {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(95deg, rgba(250,250,240,1) 0%, rgba(250,250,240,1) 50%, rgba(250,250,240,0.85) 60%, rgba(250,250,240,0) 82%);
-	z-index: 1;
-	pointer-events: none;
+/* Override WP-core's wp-block-cover__background span — it's the canonical
+   overlay element with z-index:1, lives above the cover image (z-index:0)
+   and below the inner-container (z-index:2). Theme's own ::before pseudos
+   end up at the same z-index, so paint order becomes unreliable. Use the
+   element directly to guarantee paint order. */
+.wp-block-cover.ciwa-hero .wp-block-cover__background {
+	background: linear-gradient(95deg, rgba(250,250,240,1) 0%, rgba(250,250,240,1) 48%, rgba(250,250,240,0.92) 58%, rgba(250,250,240,0) 82%) !important;
+	opacity: 1 !important;
+	z-index: 1 !important;
 }
 .wp-block-cover.ciwa-hero .wp-block-cover__inner-container {
 	position: relative;
