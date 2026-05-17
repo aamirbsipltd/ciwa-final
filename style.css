@@ -4,7 +4,7 @@ Theme URI:
 Author: Pitch Found
 Author URI:
 Description: Canadian Immigrant Women's Association — block theme converted from Figma by Pitch Found.
-Version: 0.10.0
+Version: 0.10.1
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -2371,4 +2371,254 @@ html, body { overflow-x: clip; }
 	.ciwa-partner-tabs .wp-block-columns.ciwa-partner-twoup { flex-direction: column !important; }
 	.ciwa-partner-form__field { flex: 1 1 100%; }
 	.ciwa-partner-hero__title { font-size: 2.6rem !important; }
+}
+
+/* ============================================================
+   v0.10.1 — Shared page hero + Useful Links + Annual Reports.
+   `.ciwa-page-hero` is the shared 50/50 split hero used by all
+   sub-pages (text+CTA left, photo right). Per-page sections add
+   their own classes below.
+   ============================================================ */
+
+/* ---- Shared sub-page hero --------------------------------- */
+.ciwa-page-hero {
+	padding: 72px 32px 88px !important;
+}
+.ciwa-page-hero .wp-block-columns {
+	max-width: 1320px;
+	margin: 0 auto !important;
+	gap: 48px !important;
+	align-items: center !important;
+}
+.ciwa-page-hero__title {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3.5rem !important;
+	font-weight: 400 !important;
+	line-height: 1 !important;
+	letter-spacing: -0.02em !important;
+	color: #6a1753 !important;
+	text-transform: uppercase !important;
+	margin: 0 0 20px !important;
+}
+.ciwa-page-hero__copy {
+	font-size: 1rem !important;
+	line-height: 1.6 !important;
+	color: #1a1a1a !important;
+	margin: 0 0 28px !important;
+	max-width: 540px;
+}
+.ciwa-page-hero__cta-wrap { gap: 14px !important; margin: 0 !important; flex-wrap: wrap !important; }
+.ciwa-page-hero__cta .wp-block-button__link {
+	background: #f68b3c !important;
+	color: #fff !important;
+	padding: 13px 24px !important;
+	border-radius: 8px !important;
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 0.85rem !important;
+	font-weight: 400 !important;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+.ciwa-page-hero__cta.is-outline .wp-block-button__link {
+	background: transparent !important;
+	color: #6a1753 !important;
+	border: 2px solid #6a1753 !important;
+	padding: 11px 22px !important;
+}
+.ciwa-page-hero__img figure,
+.ciwa-page-hero__img { margin: 0 !important; }
+.ciwa-page-hero__img img {
+	width: 100% !important;
+	height: auto !important;
+	border-radius: 18px !important;
+	display: block;
+}
+
+/* ---- Useful Links ----------------------------------------- */
+.ciwa-useful {
+	padding: 80px 32px 96px !important;
+}
+.ciwa-useful__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.5rem !important;
+	font-weight: 400 !important;
+	color: #1a1a1a !important;
+	letter-spacing: -0.02em !important;
+	text-transform: uppercase !important;
+	max-width: 1320px;
+	margin: 0 auto 24px !important;
+}
+.ciwa-useful__intro {
+	max-width: 1320px;
+	margin: 0 auto 48px !important;
+	font-size: 1rem !important;
+	line-height: 1.65 !important;
+	color: #4a4a4a;
+}
+.ciwa-useful .wp-block-columns.ciwa-useful__grid {
+	max-width: 1320px;
+	margin: 0 auto 48px !important;
+	gap: 64px !important;
+	align-items: flex-start !important;
+}
+.ciwa-useful__col { padding: 0 !important; }
+.ciwa-useful__list {
+	list-style: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+.ciwa-useful__list li {
+	border-bottom: 1px solid #e6dce4;
+	padding: 14px 0;
+	font-size: 0.98rem;
+}
+.ciwa-useful__list li a {
+	color: #1a1a1a;
+	text-decoration: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+}
+.ciwa-useful__list li a:hover { color: #6a1753; }
+.ciwa-useful__viewall { margin: 0 auto !important; }
+.ciwa-useful__viewall-cta .wp-block-button__link {
+	background: #6a1753 !important;
+	color: #fff !important;
+	padding: 14px 32px !important;
+	border-radius: 8px !important;
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 0.85rem !important;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+/* ---- Annual Reports --------------------------------------- */
+.ciwa-reports {
+	padding: 80px 32px 96px !important;
+}
+.ciwa-reports__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3rem !important;
+	font-weight: 400 !important;
+	color: #6a1753 !important;
+	letter-spacing: -0.02em !important;
+	text-transform: uppercase !important;
+	margin: 0 0 16px !important;
+}
+.ciwa-reports__sub {
+	max-width: 880px;
+	margin: 0 auto 32px !important;
+	font-size: 1rem !important;
+	line-height: 1.6 !important;
+	color: #4a4a4a;
+}
+.ciwa-reports__transparency-h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 1.6rem !important;
+	font-weight: 400 !important;
+	color: #e22371 !important;
+	margin: 0 0 12px !important;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+.ciwa-reports__transparency-body {
+	max-width: 1100px;
+	margin: 0 auto 56px !important;
+	font-size: 1rem !important;
+	line-height: 1.6 !important;
+	color: #4a4a4a;
+}
+.ciwa-reports .wp-block-columns.ciwa-reports__grid {
+	max-width: 1320px;
+	margin: 0 auto 48px !important;
+	gap: 28px !important;
+	align-items: stretch !important;
+}
+.ciwa-reports-col { padding: 0 !important; }
+.ciwa-report-card {
+	background: #fff !important;
+	border: 1px solid #e6dce4;
+	border-top: 6px solid #6a1753;
+	border-radius: 14px;
+	padding: 28px 24px !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 12px !important;
+	height: 100%;
+	box-sizing: border-box;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+.ciwa-report-card__year {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 1.5rem !important;
+	font-weight: 400 !important;
+	color: #6a1753 !important;
+	margin: 0 !important;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+.ciwa-report-card__tagline {
+	font-size: 0.95rem !important;
+	color: #4a4a4a !important;
+	margin: 0 0 6px !important;
+	line-height: 1.55 !important;
+}
+.ciwa-report-card__highlights-h {
+	font-family: var(--wp--preset--font-family--sans) !important;
+	font-size: 0.85rem !important;
+	font-weight: 600 !important;
+	color: #1a1a1a !important;
+	margin: 4px 0 4px !important;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+.ciwa-report-card__highlights {
+	list-style: disc;
+	padding-left: 1.25rem !important;
+	margin: 0 0 12px !important;
+}
+.ciwa-report-card__highlights li {
+	font-size: 0.92rem;
+	line-height: 1.55;
+	color: #4a4a4a;
+	margin-bottom: 4px;
+}
+.ciwa-report-card__cta-wrap {
+	margin-top: auto !important;
+	gap: 10px !important;
+	flex-wrap: wrap !important;
+}
+.ciwa-report-card__cta .wp-block-button__link {
+	background: #6a1753 !important;
+	color: #fff !important;
+	padding: 10px 20px !important;
+	border-radius: 8px !important;
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 0.8rem !important;
+	letter-spacing: 0.04em;
+}
+.ciwa-report-card__cta.is-outline .wp-block-button__link {
+	background: transparent !important;
+	color: #6a1753 !important;
+	border: 1.5px solid #6a1753 !important;
+	padding: 8px 18px !important;
+}
+.ciwa-reports__viewall { margin: 0 auto !important; }
+.ciwa-reports__viewall-cta .wp-block-button__link {
+	background: #f68b3c !important;
+	color: #fff !important;
+	padding: 14px 32px !important;
+	border-radius: 8px !important;
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 0.85rem !important;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+	.ciwa-page-hero .wp-block-columns { flex-direction: column !important; }
+	.ciwa-page-hero__title { font-size: 2.4rem !important; }
+	.ciwa-useful .wp-block-columns.ciwa-useful__grid { flex-direction: column !important; gap: 0 !important; }
+	.ciwa-reports .wp-block-columns.ciwa-reports__grid { flex-direction: column !important; }
 }

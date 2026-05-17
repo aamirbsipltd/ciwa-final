@@ -60,6 +60,8 @@ require_once get_template_directory() . '/includes/seed-pages.php';
 function ciwa_final_pattern_pages() {
 	return array(
 		'partner-with-us' => 'ciwa-final/partner-with-us',
+		'useful-links'    => 'ciwa-final/useful-links',
+		'annual-reports'  => 'ciwa-final/annual-reports',
 	);
 }
 function ciwa_final_maybe_migrate_pattern_pages() {
