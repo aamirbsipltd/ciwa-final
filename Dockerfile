@@ -15,7 +15,7 @@ FROM bitnami/wordpress:6.4
 #   WORDPRESS_DATABASE_NAME         = ${{MySQL.MYSQL_DATABASE}}
 #   WORDPRESS_USERNAME              = ciwa-admin
 #   WORDPRESS_PASSWORD              = (strong password)
-#   WORDPRESS_EMAIL                 = mehreen.aamir@gmail.com
+#   WORDPRESS_EMAIL                 = aamir.farrukh@gmail.com
 #   WORDPRESS_BLOG_NAME             = CIWA
 #
 # Railway Networking: set service port to 8080 (Bitnami's default), NOT 80.
