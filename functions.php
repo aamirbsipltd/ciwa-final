@@ -50,3 +50,37 @@ add_action( 'enqueue_block_editor_assets', 'ciwa_final_enqueue_assets' );
 
 // Auto-seed 19 WP Pages from Figma text inventories on theme activation.
 require_once get_template_directory() . '/includes/seed-pages.php';
+
+/**
+ * Pages converted to hand-built patterns. For each entry, the seeded
+ * WP Page's content is force-replaced with a pattern reference whenever
+ * the theme Version bumps — so the page always renders the latest
+ * pattern, not the v0.x heuristic auto-content.
+ */
+function ciwa_final_pattern_pages() {
+	return array(
+		'partner-with-us' => 'ciwa-final/partner-with-us',
+	);
+}
+function ciwa_final_maybe_migrate_pattern_pages() {
+	$current = wp_get_theme()->get( 'Version' );
+	$stored  = get_option( 'ciwa_final_pattern_pages_version', '0' );
+	if ( version_compare( $stored, $current, '>=' ) ) {
+		return;
+	}
+	foreach ( ciwa_final_pattern_pages() as $slug => $pattern_slug ) {
+		$page = get_page_by_path( $slug, OBJECT, 'page' );
+		if ( ! $page ) {
+			continue;
+		}
+		$new_content = sprintf( '<!-- wp:pattern {"slug":"%s"} /-->', esc_attr( $pattern_slug ) );
+		if ( $page->post_content !== $new_content ) {
+			wp_update_post( array(
+				'ID'           => $page->ID,
+				'post_content' => $new_content,
+			) );
+		}
+	}
+	update_option( 'ciwa_final_pattern_pages_version', $current );
+}
+add_action( 'init', 'ciwa_final_maybe_migrate_pattern_pages' );
