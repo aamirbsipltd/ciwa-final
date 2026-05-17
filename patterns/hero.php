@@ -22,11 +22,11 @@
 
 	<!-- wp:buttons {"className":"ciwa-hero-ctas"} -->
 	<div class="wp-block-buttons ciwa-hero-ctas">
-		<!-- wp:button {"className":"ciwa-hero-cta-orange"} -->
-		<div class="wp-block-button ciwa-hero-cta-orange"><a class="wp-block-button__link wp-element-button" href="#contact"><?php esc_html_e( 'Get Support', 'ciwa-final' ); ?> &rsaquo;</a></div>
+		<!-- wp:button {"backgroundColor":"orange","textColor":"text-light","className":"ciwa-hero-cta-orange"} -->
+		<div class="wp-block-button ciwa-hero-cta-orange"><a class="wp-block-button__link has-text-light-color has-orange-background-color has-text-color has-background wp-element-button" href="#contact"><?php esc_html_e( 'Get Support', 'ciwa-final' ); ?> &rsaquo;</a></div>
 		<!-- /wp:button -->
-		<!-- wp:button {"className":"ciwa-hero-cta-purple"} -->
-		<div class="wp-block-button ciwa-hero-cta-purple"><a class="wp-block-button__link wp-element-button" href="#donate"><?php esc_html_e( 'Donate Now', 'ciwa-final' ); ?> &rsaquo;</a></div>
+		<!-- wp:button {"backgroundColor":"primary","textColor":"text-light","className":"ciwa-hero-cta-purple"} -->
+		<div class="wp-block-button ciwa-hero-cta-purple"><a class="wp-block-button__link has-text-light-color has-primary-background-color has-text-color has-background wp-element-button" href="#donate"><?php esc_html_e( 'Donate Now', 'ciwa-final' ); ?> &rsaquo;</a></div>
 		<!-- /wp:button -->
 	</div>
 	<!-- /wp:buttons -->
