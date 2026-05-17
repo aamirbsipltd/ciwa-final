@@ -1,0 +1,9 @@
+node_modules
+package.json
+package-lock.json
+.git
+.gitignore
+README.md
+RULES.md
+*.zip
+.DS_Store

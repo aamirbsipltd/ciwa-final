@@ -1,0 +1,14 @@
+{
+  "name": "ciwa-final",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Ciwa Final — a WordPress block theme scaffolded by Pitch Found.",
+  "scripts": {
+    "dev": "wp-now start --path=.",
+    "start": "wp-now start --path=.",
+    "stop": "wp-now stop"
+  },
+  "devDependencies": {
+    "@wp-now/wp-now": "^0.1.74"
+  }
+}
