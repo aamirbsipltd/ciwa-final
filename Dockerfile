@@ -1,4 +1,4 @@
-FROM bitnami/wordpress:6.4
+FROM bitnami/wordpress:latest
 
 # Bitnami's image:
 #   - Single container (Apache + PHP-FPM + WP, but their own clean Apache build)
