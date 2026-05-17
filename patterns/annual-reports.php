@@ -7,7 +7,7 @@
  * Keywords: annual reports, transparency, accountability
  * Viewport Width: 1280
  */
-$pages = get_theme_file_uri( '/assets/img/pages' );
+$hero  = get_theme_file_uri( '/assets/img/events' );
 $reports = array(
 	array( 'year' => '2025', 'tagline' => 'A year of growth, resilience, and community impact.', 'highlights' => array( '10,000+ women supported', 'Expanded employment programs', 'New community partnerships' ) ),
 	array( 'year' => '2024', 'tagline' => 'A year of growth, resilience, and community impact.', 'highlights' => array( '10,000+ women supported', 'Expanded employment programs', 'New community partnerships' ) ),
@@ -43,7 +43,7 @@ $reports = array(
 		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 			<!-- wp:image {"sizeSlug":"full","className":"ciwa-page-hero__img"} -->
-			<figure class="wp-block-image size-full ciwa-page-hero__img"><img src="<?php echo esc_url( $pages . '/donate.png' ); ?>" alt=""/></figure>
+			<figure class="wp-block-image size-full ciwa-page-hero__img"><img src="<?php echo esc_url( $hero . '/e2.png' ); ?>" alt=""/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

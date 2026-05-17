@@ -7,7 +7,7 @@
  * Keywords: partner, partnership, business, sponsor
  * Viewport Width: 1280
  */
-$pages = get_theme_file_uri( '/assets/img/pages' );
+$hero  = get_theme_file_uri( '/assets/img/contact' );
 $icons = get_theme_file_uri( '/assets/img/programs' );
 
 $why_cards = array(
@@ -56,7 +56,7 @@ $work_tags = array( 'Accounting', 'Office administration', 'Management', 'Sales 
 		<!-- wp:column {"verticalAlignment":"center","width":"50%","className":"ciwa-partner-hero-photo"} -->
 		<div class="wp-block-column is-vertically-aligned-center ciwa-partner-hero-photo" style="flex-basis:50%">
 			<!-- wp:image {"sizeSlug":"full","className":"ciwa-partner-hero__img"} -->
-			<figure class="wp-block-image size-full ciwa-partner-hero__img"><img src="<?php echo esc_url( $pages . '/who-we-are.png' ); ?>" alt=""/></figure>
+			<figure class="wp-block-image size-full ciwa-partner-hero__img"><img src="<?php echo esc_url( $hero . '/group.png' ); ?>" alt=""/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

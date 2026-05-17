@@ -4,7 +4,7 @@ Theme URI:
 Author: Pitch Found
 Author URI:
 Description: Canadian Immigrant Women's Association — block theme converted from Figma by Pitch Found.
-Version: 0.10.2
+Version: 0.10.5
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -2783,4 +2783,291 @@ html, body { overflow-x: clip; }
 }
 @media (max-width: 480px) {
 	.ciwa-team .ciwa-team__grid { grid-template-columns: 1fr !important; }
+}
+
+/* ============================================================
+   v0.10.3 — News + Donate + Become a Member pages
+   ============================================================ */
+
+/* ---- News page -------------------------------------------- */
+.ciwa-news-page { padding: 80px 32px 96px !important; }
+.ciwa-news-page__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 48px !important;
+}
+.ciwa-news-page .ciwa-news-page__grid {
+	max-width: 1320px; margin: 0 auto !important; gap: 36px !important;
+}
+.ciwa-news-card {
+	background: #fff !important; border: 1px solid #e6dce4;
+	border-radius: 14px; overflow: hidden; padding: 0 !important;
+	display: flex !important; flex-direction: column !important;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.ciwa-news-card__img { margin: 0 !important; }
+.ciwa-news-card__img img {
+	width: 100% !important; height: 280px !important; object-fit: cover !important;
+	display: block;
+}
+.ciwa-news-card__body { padding: 24px 24px 28px !important; display: flex !important; flex-direction: column !important; gap: 10px !important; }
+.ciwa-news-card__title {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 1.4rem !important; font-weight: 400 !important;
+	color: #1a1a1a !important; margin: 0 !important;
+}
+.ciwa-news-card__date { font-size: 0.8rem !important; letter-spacing: 0.06em; text-transform: uppercase; color: #e22371 !important; margin: 0 !important; }
+.ciwa-news-card__excerpt { font-size: 0.95rem !important; line-height: 1.55 !important; color: #4a4a4a !important; margin: 0 !important; }
+.ciwa-news-card__more { margin: 8px 0 0 !important; font-size: 0.85rem !important; }
+.ciwa-news-card__more a { color: #6a1753; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; }
+
+/* ---- Donate page ------------------------------------------ */
+.ciwa-donate-impact { padding: 80px 32px !important; }
+.ciwa-donate-impact__eyebrow { color: #e22371 !important; font-family: var(--wp--preset--font-family--sans) !important; font-size: 0.85rem !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; margin: 0 0 8px !important; }
+.ciwa-donate-impact__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.8rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 48px !important;
+}
+.ciwa-donate-impact .ciwa-donate-impact__grid {
+	max-width: 1320px; margin: 0 auto !important; gap: 28px !important;
+}
+.ciwa-donate-stat {
+	background: #fff !important; border: 1px solid #e6dce4;
+	border-radius: 14px; padding: 32px 28px !important;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+	display: flex !important; flex-direction: column !important; align-items: center !important; gap: 10px !important;
+	text-align: center;
+}
+.ciwa-donate-stat__val {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3rem !important; font-weight: 400 !important;
+	margin: 0 !important; line-height: 1 !important;
+}
+.ciwa-donate-stat--pink   .ciwa-donate-stat__val { color: #e22371 !important; }
+.ciwa-donate-stat--orange .ciwa-donate-stat__val { color: #f68b3c !important; }
+.ciwa-donate-stat--coral  .ciwa-donate-stat__val { color: #ff6e6e !important; }
+.ciwa-donate-stat__title { font-weight: 600 !important; color: #1a1a1a !important; font-size: 1rem !important; margin: 0 !important; }
+.ciwa-donate-stat__body { font-size: 0.9rem !important; line-height: 1.55 !important; color: #4a4a4a !important; margin: 0 !important; }
+
+.ciwa-donate-quote { padding: 80px 32px !important; }
+.ciwa-donate-quote__body { max-width: 1080px; margin: 0 auto 18px !important; color: #fff !important; font-family: var(--wp--preset--font-family--display) !important; font-size: 1.4rem !important; line-height: 1.5 !important; font-style: italic; }
+.ciwa-donate-quote__author { color: rgba(255,255,255,0.85) !important; font-size: 0.9rem !important; letter-spacing: 0.04em; }
+
+.ciwa-donate-form-wrap { padding: 80px 32px !important; }
+.ciwa-donate-form__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.6rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 12px !important;
+}
+.ciwa-donate-form__sub { color: #4a4a4a !important; font-size: 1rem !important; margin: 0 auto 40px !important; }
+.ciwa-donate-form {
+	display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+	max-width: 1100px; margin: 0 auto;
+	background: #fff; padding: 32px; border-radius: 14px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.ciwa-donate-form__gifts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.ciwa-donate-form__gift { position: relative; cursor: pointer; }
+.ciwa-donate-form__gift input { position: absolute; opacity: 0; }
+.ciwa-donate-form__gift span {
+	display: block; padding: 14px 18px; text-align: center;
+	border: 1.5px solid #d6c8d4; border-radius: 8px;
+	font-family: var(--wp--preset--font-family--display);
+	color: #6a1753; transition: all 0.15s;
+}
+.ciwa-donate-form__gift input:checked + span { background: #6a1753; color: #fff; border-color: #6a1753; }
+.ciwa-donate-form__custom { display: flex; align-items: center; border: 1.5px solid #d6c8d4; border-radius: 8px; padding: 0 14px; margin-bottom: 12px; }
+.ciwa-donate-form__custom-symbol { color: #6a1753; margin-right: 8px; }
+.ciwa-donate-form__custom input { flex: 1; border: 0; padding: 12px 0; background: transparent; font-size: 0.95rem; }
+.ciwa-donate-form__monthly { display: inline-flex; gap: 8px; align-items: center; font-size: 0.9rem; color: #1a1a1a; }
+.ciwa-donate-form__right { gap: 14px; margin: 0; }
+
+.ciwa-donate-partner-cta { padding: 80px 32px !important; text-align: center; }
+.ciwa-donate-partner-cta__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.6rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 14px !important;
+}
+.ciwa-donate-partner-cta__copy { max-width: 880px; margin: 0 auto 28px !important; color: #4a4a4a !important; font-size: 1rem !important; }
+
+/* ---- Become a Member -------------------------------------- */
+.ciwa-member { padding: 80px 32px 64px !important; }
+.ciwa-member__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 24px !important;
+}
+.ciwa-member__intro { max-width: 1100px; margin: 0 auto 18px !important; font-size: 1rem !important; line-height: 1.6 !important; color: #4a4a4a; }
+.ciwa-member__bylaws { margin: 0 auto 40px !important; }
+.ciwa-member__bylaws a { color: #6a1753; text-decoration: underline; font-weight: 600; }
+.ciwa-member__tiers { max-width: 1080px; margin: 0 auto !important; display: flex !important; flex-direction: column !important; gap: 16px !important; }
+.ciwa-member-tier {
+	background: #fff !important; border: 1px solid #e6dce4; border-radius: 14px;
+	padding: 24px 28px !important; display: flex !important; flex-direction: column !important; gap: 12px !important;
+	box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.ciwa-member-tier__head { gap: 24px !important; align-items: baseline !important; flex-wrap: wrap !important; justify-content: space-between !important; }
+.ciwa-member-tier__title { font-family: var(--wp--preset--font-family--display) !important; font-size: 1.15rem !important; font-weight: 400 !important; color: #1a1a1a !important; margin: 0 !important; }
+.ciwa-member-tier__price { margin: 0 !important; font-size: 1.4rem; color: #e22371; font-family: var(--wp--preset--font-family--display); }
+.ciwa-member-tier__price span { font-size: 0.85rem; color: #8a7a87; margin-left: 8px; }
+.ciwa-member-tier__body { font-size: 0.95rem !important; line-height: 1.55 !important; color: #4a4a4a !important; margin: 0 !important; }
+.ciwa-member-tier__cta .wp-block-button__link {
+	background: #6a1753 !important; color: #fff !important; padding: 10px 22px !important;
+	border-radius: 8px !important; font-family: var(--wp--preset--font-family--display) !important; font-size: 0.85rem !important;
+	text-transform: uppercase; letter-spacing: 0.05em;
+}
+.ciwa-member__zeffy {
+	max-width: 880px; margin: 32px auto 0 !important;
+	background: #f6eef4; padding: 18px 24px; border-radius: 14px;
+	color: #6a1753 !important; font-size: 0.95rem !important;
+}
+
+.ciwa-member-start { padding: 64px 32px 96px !important; }
+.ciwa-member-start__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.6rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 14px !important;
+}
+.ciwa-member-start__sub { max-width: 1000px; margin: 0 auto 40px !important; color: #4a4a4a !important; font-size: 0.95rem !important; line-height: 1.6 !important; }
+.ciwa-member-start .wp-block-columns.ciwa-member-start__row { max-width: 1080px; margin: 0 auto !important; gap: 28px !important; align-items: stretch !important; }
+.ciwa-member-resources { background: #6a1753 !important; padding: 40px 32px !important; border-radius: 14px; height: 100%; box-sizing: border-box; display: flex !important; flex-direction: column !important; gap: 14px !important; }
+.ciwa-member-resources__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 1.6rem !important; font-weight: 400 !important; color: #fff !important; margin: 0 !important; text-transform: uppercase; letter-spacing: 0.04em; }
+.ciwa-member-resources__body { color: rgba(255,255,255,0.9) !important; font-size: 0.95rem !important; line-height: 1.6 !important; margin: 0 !important; }
+.ciwa-member-resources__cta .wp-block-button__link { background: #f68b3c !important; color: #fff !important; padding: 12px 24px !important; border-radius: 8px !important; font-family: var(--wp--preset--font-family--display) !important; font-size: 0.85rem !important; text-transform: uppercase; letter-spacing: 0.05em; }
+
+@media (max-width: 900px) {
+	.ciwa-donate-form { grid-template-columns: 1fr !important; }
+	.ciwa-member-start .wp-block-columns.ciwa-member-start__row { flex-direction: column !important; }
+	.ciwa-news-page .ciwa-news-page__grid { grid-template-columns: 1fr !important; }
+}
+
+/* ============================================================
+   v0.10.4 — Events + Newsletter + Volunteer With Us pages
+   ============================================================ */
+
+/* ---- Events page ------------------------------------------ */
+.ciwa-events-page { padding: 80px 32px 96px !important; }
+.ciwa-events-page__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 24px !important;
+}
+.ciwa-events-page__filters { justify-content: center !important; margin: 0 auto 40px !important; gap: 12px !important; }
+.ciwa-events-page__filters .wp-block-button .wp-block-button__link { padding: 8px 24px !important; border-radius: 999px !important; font-family: var(--wp--preset--font-family--display) !important; font-size: 0.85rem !important; }
+.ciwa-events-page__filters .is-ghost .wp-block-button__link { background: transparent !important; color: #6a1753 !important; border: 1.5px solid #d6c8d4 !important; }
+.ciwa-events-page__list { max-width: 1100px; margin: 0 auto !important; display: flex !important; flex-direction: column !important; gap: 24px !important; }
+.ciwa-event-card {
+	background: #fff !important; border: 1px solid #e6dce4; border-radius: 14px;
+	padding: 20px !important; gap: 20px !important; box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.ciwa-event-card__img img { width: 100% !important; height: 160px !important; object-fit: cover !important; border-radius: 10px; }
+.ciwa-event-card__date { display: inline-block; padding: 4px 12px; background: #fce7f0; color: #e22371 !important; border-radius: 999px !important; font-size: 0.75rem !important; letter-spacing: 0.06em; text-transform: uppercase; margin: 0 0 8px !important; }
+.ciwa-event-card__title { font-family: var(--wp--preset--font-family--display) !important; font-size: 1.2rem !important; font-weight: 400 !important; color: #1a1a1a !important; margin: 0 0 8px !important; line-height: 1.3 !important; text-transform: uppercase; letter-spacing: 0.02em; }
+.ciwa-event-card__body { font-size: 0.95rem !important; line-height: 1.55 !important; color: #4a4a4a !important; margin: 0 0 10px !important; }
+.ciwa-event-card__more { margin: 0 !important; font-size: 0.85rem !important; }
+.ciwa-event-card__more a { color: #6a1753; text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; }
+.ciwa-events-page__viewall { margin: 48px auto 0 !important; }
+
+/* ---- Newsletter page -------------------------------------- */
+.ciwa-newsletter-sub { padding: 80px 32px !important; }
+.ciwa-newsletter-sub__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.6rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 32px !important;
+}
+.ciwa-newsletter-form { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; align-items: stretch; }
+.ciwa-newsletter-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.ciwa-newsletter-form label { display: flex; flex-direction: column; gap: 6px; }
+.ciwa-newsletter-form input { background: #fff; border: 1.5px solid #d6c8d4; border-radius: 8px; padding: 12px 14px; font-size: 0.95rem; }
+.ciwa-newsletter-form button { background: #6a1753; color: #fff; border: 0; padding: 14px 28px; border-radius: 8px; font-family: var(--wp--preset--font-family--display); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; align-self: stretch; }
+
+.ciwa-newsletter-archive { padding: 64px 32px !important; }
+.ciwa-newsletter-archive .ciwa-newsletter-archive__grid { max-width: 1320px; margin: 0 auto !important; gap: 20px !important; }
+.ciwa-newsletter-issue { background: #fff !important; border: 1px solid #e6dce4; border-radius: 14px; padding: 22px 20px !important; display: flex !important; flex-direction: column !important; gap: 8px !important; box-shadow: 0 1px 4px rgba(0,0,0,0.03); }
+.ciwa-newsletter-issue__title { font-family: var(--wp--preset--font-family--display) !important; font-size: 1rem !important; font-weight: 400 !important; color: #1a1a1a !important; letter-spacing: 0.04em; margin: 0 !important; }
+.ciwa-newsletter-issue--pink   .ciwa-newsletter-issue__title { color: #e22371 !important; }
+.ciwa-newsletter-issue--orange .ciwa-newsletter-issue__title { color: #f68b3c !important; }
+.ciwa-newsletter-issue--coral  .ciwa-newsletter-issue__title { color: #ff6e6e !important; }
+.ciwa-newsletter-issue__date { font-size: 0.75rem !important; color: #8a7a87 !important; margin: 0 !important; letter-spacing: 0.04em; }
+.ciwa-newsletter-issue__body { font-size: 0.85rem !important; line-height: 1.5 !important; color: #4a4a4a !important; margin: 0 !important; }
+.ciwa-newsletter-issue__more { margin: 4px 0 0 !important; font-size: 0.78rem !important; }
+.ciwa-newsletter-issue__more a { color: #6a1753; text-decoration: underline; }
+
+.ciwa-newsletter-toolkits { padding: 64px 32px 96px !important; }
+.ciwa-newsletter-toolkits__eyebrow { max-width: 1100px; margin: 0 auto 32px !important; font-size: 0.95rem !important; color: #4a4a4a !important; }
+.ciwa-newsletter-toolkits__list { max-width: 1100px; margin: 0 auto !important; display: flex !important; flex-direction: column !important; gap: 20px !important; }
+.ciwa-toolkit-card { background: #fff !important; border: 1px solid #e6dce4; border-radius: 14px; padding: 28px !important; box-shadow: 0 1px 4px rgba(0,0,0,0.03); }
+.ciwa-toolkit-card__title { font-family: var(--wp--preset--font-family--display) !important; font-size: 1rem !important; font-weight: 400 !important; color: #1a1a1a !important; margin: 0 0 12px !important; letter-spacing: 0.04em; text-transform: uppercase; line-height: 1.4 !important; }
+.ciwa-toolkit-card__body { font-size: 0.92rem !important; line-height: 1.6 !important; color: #4a4a4a !important; margin: 0 !important; }
+.ciwa-newsletter-toolkits__viewall { margin: 40px auto 0 !important; }
+
+/* ---- Volunteer With Us page ------------------------------- */
+.ciwa-volunteer { padding: 80px 32px 64px !important; }
+.ciwa-volunteer__h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3rem !important; font-weight: 400 !important;
+	color: #6a1753 !important; letter-spacing: -0.02em !important;
+	text-transform: uppercase !important; margin: 0 0 16px !important;
+}
+.ciwa-volunteer__intro { max-width: 1100px; margin: 0 auto 48px !important; font-size: 1rem !important; line-height: 1.6 !important; color: #4a4a4a; }
+.ciwa-volunteer__sub { font-family: var(--wp--preset--font-family--display) !important; font-size: 2rem !important; color: #6a1753 !important; margin: 0 0 32px !important; text-transform: uppercase; }
+.ciwa-volunteer__opps { max-width: 1100px; margin: 0 auto !important; display: flex !important; flex-direction: column !important; gap: 16px !important; }
+.ciwa-volunteer-opp { background: #fff !important; border: 1px solid #e6dce4; border-radius: 14px; padding: 28px !important; box-shadow: 0 1px 4px rgba(0,0,0,0.03); }
+.ciwa-volunteer-opp__title { font-family: var(--wp--preset--font-family--display) !important; font-size: 1.1rem !important; font-weight: 400 !important; color: #e22371 !important; margin: 0 0 12px !important; text-transform: uppercase; letter-spacing: 0.04em; }
+.ciwa-volunteer-opp__body { font-size: 0.95rem !important; line-height: 1.6 !important; color: #4a4a4a !important; margin: 0 0 14px !important; }
+.ciwa-volunteer-opp__cta .wp-block-button__link { background: #6a1753 !important; color: #fff !important; padding: 9px 20px !important; border-radius: 8px !important; font-family: var(--wp--preset--font-family--display) !important; font-size: 0.8rem !important; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.ciwa-volunteer-spotlight { padding: 80px 32px 96px !important; }
+
+/* FAQ */
+.ciwa-faq { padding: 80px 32px !important; }
+.ciwa-faq__h { font-family: var(--wp--preset--font-family--display) !important; font-size: 2.6rem !important; font-weight: 400 !important; color: #6a1753 !important; letter-spacing: -0.02em !important; text-transform: uppercase !important; margin: 0 0 32px !important; }
+.ciwa-faq__list { max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.ciwa-faq__item { background: #fff; border: 1px solid #e6dce4; border-radius: 14px; padding: 18px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.03); }
+.ciwa-faq__item[open] { border-color: #e22371; }
+.ciwa-faq__q { cursor: pointer; list-style: none; font-family: var(--wp--preset--font-family--display); font-size: 1rem; color: #1a1a1a; padding-right: 32px; position: relative; }
+.ciwa-faq__item[open] .ciwa-faq__q { color: #e22371; }
+.ciwa-faq__q::after { content: "+"; position: absolute; right: 0; top: -2px; font-size: 1.4rem; color: #6a1753; }
+.ciwa-faq__item[open] .ciwa-faq__q::after { content: "−"; }
+.ciwa-faq__a { margin: 14px 0 0; font-size: 0.95rem; line-height: 1.6; color: #4a4a4a; }
+.ciwa-faq__cta-wrap { margin: 40px auto 0 !important; gap: 14px !important; }
+.ciwa-faq__cta-wrap .is-outline .wp-block-button__link { background: transparent !important; color: #6a1753 !important; border: 1.5px solid #6a1753 !important; }
+
+@media (max-width: 900px) {
+	.ciwa-newsletter-archive .ciwa-newsletter-archive__grid { grid-template-columns: repeat(2, 1fr) !important; }
+	.ciwa-event-card.wp-block-columns { flex-direction: column !important; }
+	.ciwa-newsletter-form__row { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 600px) {
+	.ciwa-newsletter-archive .ciwa-newsletter-archive__grid { grid-template-columns: 1fr !important; }
+}
+
+/* ---- Awards & Recognition --------------------------------- */
+.ciwa-awards { padding: 80px 32px 96px !important; }
+.ciwa-awards__intro { max-width: 1080px; margin: 0 auto 56px !important; font-size: 1.05rem !important; line-height: 1.6 !important; color: #4a4a4a; }
+.ciwa-awards__list { max-width: 1080px; margin: 0 auto !important; display: flex !important; flex-direction: column !important; gap: 8px !important; }
+.ciwa-awards__year {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 1.8rem !important; font-weight: 400 !important;
+	color: #e22371 !important; margin: 28px 0 12px !important;
+	letter-spacing: 0.02em; border-bottom: 2px solid #e6dce4;
+	padding-bottom: 8px;
+}
+.ciwa-awards__year:first-child { margin-top: 0 !important; }
+.ciwa-awards__item {
+	background: #fff !important; border: 1px solid #e6dce4;
+	border-left: 4px solid #6a1753;
+	border-radius: 10px; padding: 14px 18px !important;
+	font-size: 0.95rem !important; line-height: 1.55 !important;
+	color: #1a1a1a !important; margin: 0 !important;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.03);
 }

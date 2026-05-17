@@ -7,8 +7,8 @@
  * Keywords: contact, form, support
  * Viewport Width: 1280
  */
-$pages = get_theme_file_uri( '/assets/img/pages' );
-$map   = get_theme_file_uri( '/assets/img/map' );
+$hero = get_theme_file_uri( '/assets/img/contact' );
+$map  = get_theme_file_uri( '/assets/img/map' );
 ?>
 
 <!-- HERO -->
@@ -39,7 +39,7 @@ $map   = get_theme_file_uri( '/assets/img/map' );
 		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 			<!-- wp:image {"sizeSlug":"full","className":"ciwa-page-hero__img"} -->
-			<figure class="wp-block-image size-full ciwa-page-hero__img"><img src="<?php echo esc_url( $pages . '/contact.png' ); ?>" alt=""/></figure>
+			<figure class="wp-block-image size-full ciwa-page-hero__img"><img src="<?php echo esc_url( $hero . '/group.png' ); ?>" alt=""/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

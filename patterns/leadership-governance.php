@@ -7,7 +7,7 @@
  * Keywords: leadership, governance, staff, team
  * Viewport Width: 1280
  */
-$pages  = get_theme_file_uri( '/assets/img/pages' );
+$hero   = get_theme_file_uri( '/assets/img/welcome' );
 $voices = get_theme_file_uri( '/assets/img/voices' );
 
 // 12 leaders in 3 rows × 4 cols. Initials are placeholder avatars.
@@ -80,7 +80,7 @@ function ciwa_emit_team_card( $p, $voices ) {
 		<!-- wp:column {"verticalAlignment":"center","width":"50%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:50%">
 			<!-- wp:image {"sizeSlug":"full","className":"ciwa-page-hero__img"} -->
-			<figure class="wp-block-image size-full ciwa-page-hero__img"><img src="<?php echo esc_url( $pages . '/who-we-are.png' ); ?>" alt=""/></figure>
+			<figure class="wp-block-image size-full ciwa-page-hero__img"><img src="<?php echo esc_url( $hero . '/collage.png' ); ?>" alt=""/></figure>
 			<!-- /wp:image -->
 		</div>
 		<!-- /wp:column -->

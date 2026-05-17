@@ -65,6 +65,13 @@ function ciwa_final_pattern_pages() {
 		'contact'                => 'ciwa-final/contact-page',
 		'leadership-governance'  => 'ciwa-final/leadership-governance',
 		'board-of-directors'     => 'ciwa-final/board-of-directors',
+		'news'                   => 'ciwa-final/news-page',
+		'donate'                 => 'ciwa-final/donate',
+		'become-a-member'        => 'ciwa-final/become-a-member',
+		'events'                 => 'ciwa-final/events-page',
+		'newsletter'             => 'ciwa-final/newsletter',
+		'volunteer-with-us'      => 'ciwa-final/volunteer-with-us',
+		'awards-recognition'     => 'ciwa-final/awards-recognition',
 	);
 }
 function ciwa_final_maybe_migrate_pattern_pages() {
