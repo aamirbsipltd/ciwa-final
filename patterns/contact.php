@@ -17,8 +17,8 @@ $photo = get_theme_file_uri( '/assets/img/contact/group.png' );
 
 		<!-- wp:column {"verticalAlignment":"center","width":"50%","className":"ciwa-contact-form"} -->
 		<div class="wp-block-column is-vertically-aligned-center ciwa-contact-form" style="flex-basis:50%">
-			<!-- wp:heading {"level":2,"textColor":"primary","className":"ciwa-contact-h"} -->
-			<h2 class="wp-block-heading ciwa-contact-h has-primary-color has-text-color"><?php esc_html_e( 'Get In Touch', 'ciwa-final' ); ?></h2>
+			<!-- wp:heading {"level":2,"className":"ciwa-contact-h","textColor":"primary"} -->
+			<h2 class="wp-block-heading ciwa-contact-h has-primary-color has-text-color"><?php esc_html_e( 'GET IN', 'ciwa-final' ); ?> <mark style="background-color:rgba(0, 0, 0, 0);color:#ff6e6e" class="has-inline-color"><?php esc_html_e( 'TOUCH', 'ciwa-final' ); ?></mark></h2>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph {"textColor":"text-muted"} -->
 			<p class="has-text-muted-color has-text-color"><?php echo esc_html__( "Thank you for contacting us. We are ready to assist you. Please fill out the on-line form below and click \xE2\x80\x9Csubmit.\xE2\x80\x9D Our staff will contact you to find out how we can help.", 'ciwa-final' ); ?></p>
@@ -49,9 +49,15 @@ $photo = get_theme_file_uri( '/assets/img/contact/group.png' );
 
 		<!-- wp:column {"verticalAlignment":"center","width":"50%","className":"ciwa-contact-photocol"} -->
 		<div class="wp-block-column is-vertically-aligned-center ciwa-contact-photocol" style="flex-basis:50%">
-			<!-- wp:image {"className":"ciwa-contact-photo"} -->
-			<figure class="wp-block-image ciwa-contact-photo"><img src="<?php echo esc_url( $photo ); ?>" alt=""/></figure>
-			<!-- /wp:image -->
+			<!-- wp:html -->
+			<div class="ciwa-contact-photo-wrap" style="position:relative;border-radius:14px;overflow:hidden">
+				<img src="<?php echo esc_url( $photo ); ?>" alt="" style="width:100%;height:auto;display:block" />
+				<div style="position:absolute;bottom:20px;right:20px;background:rgba(106,23,83,0.85);color:#fff;border-radius:12px;padding:14px 18px;backdrop-filter:blur(6px)">
+					<div style="font-family:var(--wp--preset--font-family--display);font-size:2.2rem;line-height:1;font-weight:400">40+</div>
+					<div style="font-size:0.8rem;letter-spacing:0.04em;margin-top:4px">Years in Action</div>
+				</div>
+			</div>
+			<!-- /wp:html -->
 		</div>
 		<!-- /wp:column -->
 

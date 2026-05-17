@@ -4,7 +4,7 @@ Theme URI:
 Author: Pitch Found
 Author URI:
 Description: Canadian Immigrant Women's Association — block theme converted from Figma by Pitch Found.
-Version: 0.6.1
+Version: 0.7.0
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -92,9 +92,11 @@ img { max-width: 100%; height: auto; }
 	gap: 32px;
 	list-style: none;
 	padding: 0; margin: 0;
-	font-family: var(--wp--preset--font-family--display);
-	font-size: 1rem;
-	letter-spacing: 0.02em;
+	font-family: var(--wp--preset--font-family--sans);
+	font-size: 0.95rem;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	text-transform: none;
 }
 .ciwa-navbar .ciwa-nav > ul > li { position: relative; white-space: nowrap; }
 .ciwa-navbar .ciwa-nav a {
@@ -181,13 +183,9 @@ img { max-width: 100%; height: auto; }
 .ciwa-nav li { position: relative; }
 /* old caret rule disabled to avoid duplicate arrows in new navbar */
 .ciwa-nav .has-sub > a::after { content: ""; }
-.ciwa-navbar .ciwa-nav .has-sub > a::after {
-	content: " \25BE";
-	font-size: 0.65em;
-	margin-left: 6px;
-	opacity: 0.85;
-	font-family: Arial, sans-serif;
-}
+/* dropdown caret removed — Figma navbar shows no carets */
+.ciwa-navbar .ciwa-nav .has-sub > a::after,
+.ciwa-nav .has-sub > a::after { content: none !important; }
 .ciwa-nav .has-sub > ul {
 	position: absolute;
 	top: 100%;
@@ -1239,4 +1237,88 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 900px) {
 	.ciwa-how-help .ciwa-help-card { flex-basis: 88% !important; }
 	.ciwa-how-help .ciwa-help-slider { padding: 0 24px !important; }
+}
+
+/* ============================================================
+   v0.7.0 — pixel-perfect Figma alignment fixes
+   ============================================================ */
+
+/* Hero gradient background + tighter heading */
+.ciwa-hero {
+	background: linear-gradient(135deg, #fde9f1 0%, #fafaf0 50%) !important;
+	padding: 60px 32px !important;
+}
+.ciwa-hero-cols { gap: 40px !important; }
+.ciwa-hero-text { flex-basis: 50% !important; max-width: 640px; }
+.ciwa-hero-photocol { flex-basis: 50% !important; }
+.ciwa-hero-title.has-pink-color {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 4.2rem !important;
+	font-weight: 400 !important;
+	color: #e22371 !important;
+	line-height: 1.05 !important;
+	letter-spacing: -0.02em !important;
+	margin: 0 0 18px !important;
+}
+.ciwa-hero-sub {
+	color: #1a1a1a !important;
+	font-size: 1rem !important;
+	line-height: 1.55 !important;
+	margin: 0 0 28px !important;
+	max-width: 560px;
+}
+.ciwa-hero-ctas .wp-block-button { margin-right: 12px; }
+.ciwa-hero-photo img {
+	width: 100% !important;
+	height: auto !important;
+	border-radius: 18px;
+	display: block;
+}
+
+/* News heading + cards (removed uppercase on titles) */
+.ciwa-news { padding: 80px 32px !important; }
+.ciwa-news .ciwa-news-h.has-primary-color {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3rem !important;
+	font-weight: 400 !important;
+	margin: 0 0 12px !important;
+	text-align: center !important;
+}
+.ciwa-news > .has-text-align-center { text-align: center; max-width: 760px; margin: 0 auto 36px !important; color: #5b5b66; }
+.ciwa-news-title { text-transform: none !important; }
+
+/* Voices section spacing */
+.ciwa-voices { padding: 80px 32px !important; }
+
+/* Welcome section padding */
+.ciwa-welcome { padding: 0 !important; }
+
+/* Map heading style */
+.ciwa-map .ciwa-map-h.has-primary-color {
+	font-family: var(--wp--preset--font-family--display) !important;
+}
+
+/* Programs softer border palette (was too saturated vs Figma) */
+.ciwa-programs-grid .ciwa-program-purple { border-color: #6a1753 !important; }
+.ciwa-programs-grid .ciwa-program-pink   { border-color: #e22371 !important; }
+.ciwa-programs-grid .ciwa-program-orange { border-color: #f69538 !important; }
+.ciwa-programs-grid .ciwa-program-coral  { border-color: #ff6e6e !important; }
+.ciwa-programs-grid .ciwa-program-olive  { border-color: #aaa835 !important; }
+.ciwa-programs-grid .ciwa-program-teal   { border-color: #5bbdad !important; }
+
+/* Contact heading + photo */
+.ciwa-contact .ciwa-contact-h.has-primary-color {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 3.5rem !important;
+	font-weight: 400 !important;
+	letter-spacing: -0.02em !important;
+	margin: 0 0 16px !important;
+}
+
+@media (max-width: 900px) {
+	.ciwa-welcome-grid { grid-template-columns: 1fr !important; min-height: auto !important; }
+	.ciwa-voices-grid { grid-template-columns: 1fr !important; }
+	.ciwa-ig-grid { grid-template-columns: repeat(2, 1fr) !important; }
+	.ciwa-news-grid { grid-template-columns: 1fr !important; }
+	.ciwa-hero-title.has-pink-color { font-size: 2.8rem !important; }
 }

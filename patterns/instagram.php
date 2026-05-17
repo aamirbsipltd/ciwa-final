@@ -8,6 +8,20 @@
  * Viewport Width: 1280
  */
 $uri = get_theme_file_uri( '/assets/img/instagram' );
+$tiles = array( 'ig1.png', 'ig2.png', 'ig3.png', 'ig4.png', 'ig5.png' );
+ob_start();
+?>
+<div class="ciwa-ig-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:14px;max-width:1320px;margin:0 auto">
+<?php foreach ( $tiles as $t ) : ?>
+	<img src="<?php echo esc_url( $uri . '/' . $t ); ?>" alt="" style="width:100%;height:340px;object-fit:cover;display:block;border-radius:10px" />
+<?php endforeach; ?>
+</div>
+<div class="ciwa-ig-cta-wrap" style="display:flex;justify-content:center;gap:14px;margin-top:32px;flex-wrap:wrap">
+	<a href="https://instagram.com/" style="background:#f68b3c;color:#fff;padding:13px 26px;border-radius:8px;font-family:var(--wp--preset--font-family--display);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;text-decoration:none">VIEW ALL &rsaquo;</a>
+	<a href="https://instagram.com/" style="background:transparent;color:#f68b3c;border:2px solid #f68b3c;padding:11px 24px;border-radius:8px;font-family:var(--wp--preset--font-family--display);font-size:0.85rem;text-transform:uppercase;letter-spacing:0.05em;text-decoration:none">FOLLOW US ON INSTAGRAM</a>
+</div>
+<?php
+$ig_html = ob_get_clean();
 ?>
 <!-- wp:group {"align":"full","className":"ciwa-ig","backgroundColor":"surface-cream","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull ciwa-ig has-surface-cream-background-color has-background">
@@ -17,46 +31,12 @@ $uri = get_theme_file_uri( '/assets/img/instagram' );
 	<!-- /wp:paragraph -->
 
 	<!-- wp:heading {"level":2,"textAlign":"center","textColor":"primary","className":"ciwa-ig-h"} -->
-	<h2 class="wp-block-heading has-text-align-center ciwa-ig-h has-primary-color has-text-color"><?php esc_html_e( 'Follow Journey on Our Instagram', 'ciwa-final' ); ?></h2>
+	<h2 class="wp-block-heading has-text-align-center ciwa-ig-h has-primary-color has-text-color"><?php esc_html_e( 'FOLLOW OUR JOURNEY ON', 'ciwa-final' ); ?> <mark style="background-color:rgba(0, 0, 0, 0);color:#ff6e6e" class="has-inline-color"><?php esc_html_e( 'INSTAGRAM', 'ciwa-final' ); ?></mark></h2>
 	<!-- /wp:heading -->
 
-	<!-- wp:columns {"align":"wide","className":"ciwa-ig-grid"} -->
-	<div class="wp-block-columns alignwide ciwa-ig-grid">
-		<!-- wp:column {"className":"ciwa-ig-tile ciwa-ig-tile-lead"} -->
-		<div class="wp-block-column ciwa-ig-tile ciwa-ig-tile-lead">
-			<!-- wp:image --><figure class="wp-block-image"><img src="<?php echo esc_url( $uri . '/ig1.png' ); ?>" alt=""/></figure><!-- /wp:image -->
-		</div>
-		<!-- /wp:column -->
-		<!-- wp:column {"className":"ciwa-ig-tile"} -->
-		<div class="wp-block-column ciwa-ig-tile">
-			<!-- wp:image --><figure class="wp-block-image"><img src="<?php echo esc_url( $uri . '/ig2.png' ); ?>" alt=""/></figure><!-- /wp:image -->
-		</div>
-		<!-- /wp:column -->
-		<!-- wp:column {"className":"ciwa-ig-tile"} -->
-		<div class="wp-block-column ciwa-ig-tile">
-			<!-- wp:image --><figure class="wp-block-image"><img src="<?php echo esc_url( $uri . '/ig3.png' ); ?>" alt=""/></figure><!-- /wp:image -->
-		</div>
-		<!-- /wp:column -->
-		<!-- wp:column {"className":"ciwa-ig-tile"} -->
-		<div class="wp-block-column ciwa-ig-tile">
-			<!-- wp:image --><figure class="wp-block-image"><img src="<?php echo esc_url( $uri . '/ig4.png' ); ?>" alt=""/></figure><!-- /wp:image -->
-		</div>
-		<!-- /wp:column -->
-		<!-- wp:column {"className":"ciwa-ig-tile"} -->
-		<div class="wp-block-column ciwa-ig-tile">
-			<!-- wp:image --><figure class="wp-block-image"><img src="<?php echo esc_url( $uri . '/ig5.png' ); ?>" alt=""/></figure><!-- /wp:image -->
-		</div>
-		<!-- /wp:column -->
-	</div>
-	<!-- /wp:columns -->
-
-	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-	<div class="wp-block-buttons">
-		<!-- wp:button {"backgroundColor":"orange","textColor":"text-light"} -->
-		<div class="wp-block-button"><a class="wp-block-button__link has-text-light-color has-orange-background-color has-text-color has-background wp-element-button" href="https://instagram.com/"><?php esc_html_e( 'VIEW ALL', 'ciwa-final' ); ?></a></div>
-		<!-- /wp:button -->
-	</div>
-	<!-- /wp:buttons -->
+	<!-- wp:html -->
+	<?php echo $ig_html; ?>
+	<!-- /wp:html -->
 
 </div>
 <!-- /wp:group -->
