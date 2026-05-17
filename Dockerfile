@@ -3,36 +3,40 @@ FROM bitnami/wordpress:latest
 # Bitnami's image:
 #   - Single container (Apache + PHP-FPM + WP, but their own clean Apache build)
 #   - Auto-installs WordPress from env vars (no install wizard)
-#   - Listens on 8080/8443 (non-root by design — can't bind 80 without privilege)
-#   - Persistent data: /bitnami/wordpress (volume)
-#   - WP install at: /opt/bitnami/wordpress (in-image)
+#   - Listens on 8080 by default (Bitnami's port, can't be 80 without root bind)
+#   - Persistent data: /bitnami/wordpress (Railway volume)
+#   - WP install template: /opt/bitnami/wordpress (in-image)
 #
 # Required env vars on Railway (set in Variables tab):
-#   WORDPRESS_DATABASE_HOST         = ${{MySQL.MYSQL_HOST}}
-#   WORDPRESS_DATABASE_PORT_NUMBER  = ${{MySQL.MYSQL_PORT}}
-#   WORDPRESS_DATABASE_USER         = ${{MySQL.MYSQL_USER}}
-#   WORDPRESS_DATABASE_PASSWORD     = ${{MySQL.MYSQL_PASSWORD}}
-#   WORDPRESS_DATABASE_NAME         = ${{MySQL.MYSQL_DATABASE}}
+#   WORDPRESS_DATABASE_HOST         = ${{MySQL.MYSQLHOST}}     (no underscore!)
+#   WORDPRESS_DATABASE_PORT_NUMBER  = ${{MySQL.MYSQLPORT}}
+#   WORDPRESS_DATABASE_USER         = ${{MySQL.MYSQLUSER}}
+#   WORDPRESS_DATABASE_PASSWORD     = ${{MySQL.MYSQLPASSWORD}}
+#   WORDPRESS_DATABASE_NAME         = ${{MySQL.MYSQLDATABASE}}
 #   WORDPRESS_USERNAME              = ciwa-admin
 #   WORDPRESS_PASSWORD              = (strong password)
 #   WORDPRESS_EMAIL                 = aamir.farrukh@gmail.com
 #   WORDPRESS_BLOG_NAME             = CIWA
+#   WORDPRESS_SITE_URL              = https://<your-railway-app>.up.railway.app
 #
-# Railway Networking: set service port to 8080 (Bitnami's default), NOT 80.
-
-USER root
-
-# Bake the theme into bitnami's wp-content. On first boot Bitnami copies
-# wp-content into the /bitnami/wordpress persistent volume.
-COPY --chown=1001:1001 . /opt/bitnami/wordpress/wp-content/themes/ciwa-final/
-
-# Sync the theme on every boot, so `git push` redeploys update the theme
-# in the live volume (not just baked into the image).
-COPY docker/bitnami-sync-theme.sh /opt/bitnami/scripts/wordpress/post-init.d/00-ciwa-sync-theme.sh
-RUN chmod +x /opt/bitnami/scripts/wordpress/post-init.d/00-ciwa-sync-theme.sh
+# Railway Networking: set service domain target port to 8080.
 
 # Run as root so Bitnami's setup scripts can chown the Railway-mounted volume.
-# Railway volumes are root-owned at mount time; Bitnami's default user 1001
-# cannot write wp-config.php into them. Bitnami's entrypoint internally drops
-# privileges to 1001 after permission fixes.
 USER root
+
+# Bake the theme into bitnami's image themes directory. Bitnami copies the
+# in-image wp-content to the persistent volume ONLY on first boot. Subsequent
+# theme updates require the runtime sync script below.
+COPY --chown=1001:1001 . /opt/bitnami/wordpress/wp-content/themes/ciwa-final/
+
+# Install runtime sync script: runs every container start, syncs the
+# in-image theme into the persistent volume, then exec's Bitnami's
+# normal Apache start. This is what makes `git push` updates reach
+# the live site instead of getting stuck on first-boot snapshot.
+COPY docker/bitnami-runtime-sync.sh /opt/ciwa/runtime-sync.sh
+RUN chmod +x /opt/ciwa/runtime-sync.sh
+
+# Override Bitnami's default CMD (which was the apache start command) with
+# our wrapper. Bitnami's ENTRYPOINT still runs first to do WP setup, then
+# exec's CMD — i.e. our wrapper. Wrapper syncs theme then chains to run.sh.
+CMD ["/opt/ciwa/runtime-sync.sh"]
