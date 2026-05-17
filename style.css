@@ -4,7 +4,7 @@ Theme URI:
 Author: Pitch Found
 Author URI:
 Description: Canadian Immigrant Women's Association — block theme converted from Figma by Pitch Found.
-Version: 0.9.1
+Version: 0.9.2
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -1947,4 +1947,20 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 900px) {
 	.ciwa-voices .wp-block-columns.ciwa-voices-row { flex-direction: column !important; }
 	.ciwa-voices .wp-block-columns.ciwa-voices-cards-row { flex-direction: column !important; }
+}
+
+/* ============================================================
+   v0.9.2 — kill horizontal page scroll.
+   The how-help carousel's track has `min-width: max-content`
+   (line 419), so its 8 cards forced the document to ~3888px wide
+   even though the track itself has overflow-x:auto. We clip at
+   the page + section level and neutralize the bad min-width so
+   the carousel scrolls inside its own container.
+   ============================================================ */
+html, body { overflow-x: clip; }
+.ciwa-how-help { overflow-x: clip; }
+.ciwa-how-help .ciwa-help-track,
+.wp-block-columns.ciwa-help-track {
+	min-width: 0 !important;
+	max-width: 100% !important;
 }
