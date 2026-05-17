@@ -3,7 +3,7 @@
  * Title: Programs & Services
  * Slug: ciwa-final/programs
  * Categories: ciwa-final
- * Description: 2x3 grid of program cards — canonical wp:group/wp:image/wp:heading/wp:paragraph.
+ * Description: Programs & Services — 2 columns × 3 stacked cards per column. Each card is a canonical wp:group with icon, heading, body, link.
  * Keywords: programs, services
  * Viewport Width: 1280
  */
@@ -16,6 +16,43 @@ $programs = array(
 	array( 'icon' => $uri . '/icon-5.svg', 'col' => 'olive',  'title' => 'WELLBEING AND RESILIENCY',        'body' => "Adjusting to a life in a new country can take time and effort for parents and families. At CIWA, we provide services to support parents and families\xE2\x80\x99 transition to life in Canada." ),
 	array( 'icon' => $uri . '/icon-6.svg', 'col' => 'teal',   'title' => 'SMILES CHILDCARE CENTRE',         'body' => 'Our social enterprise childcare centre in Downtown Calgary where your child feels safe, supported, and happy.' ),
 );
+$col_left  = array_slice( $programs, 0, 3 );
+$col_right = array_slice( $programs, 3, 3 );
+
+/**
+ * Emit one card. The card is a canonical wp:group with className
+ * "ciwa-program-card ciwa-program-card--<variant>".
+ *
+ * Markup inside (vertical stack):
+ *   wp:image            (icon, 54px)
+ *   wp:heading h3       (title in display font)
+ *   wp:paragraph        (body in sans)
+ *   wp:paragraph + <a>  (Learn More → link, bottom of card)
+ */
+function ciwa_emit_program_card( $p ) {
+	$col   = esc_attr( $p['col'] );
+	$icon  = esc_url( $p['icon'] );
+	$body  = esc_html( $p['body'] );
+	$title = $p['title']; // intentionally not escaped — manifest values include &amp; entities.
+	?>
+		<!-- wp:group {"className":"ciwa-program-card ciwa-program-card--<?php echo $col; ?>","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group ciwa-program-card ciwa-program-card--<?php echo $col; ?>">
+			<!-- wp:image {"sizeSlug":"full","className":"ciwa-program-card__icon"} -->
+			<figure class="wp-block-image size-full ciwa-program-card__icon"><img src="<?php echo $icon; ?>" alt=""/></figure>
+			<!-- /wp:image -->
+			<!-- wp:heading {"level":3,"className":"ciwa-program-card__title"} -->
+			<h3 class="wp-block-heading ciwa-program-card__title"><?php echo $title; ?></h3>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"className":"ciwa-program-card__copy"} -->
+			<p class="ciwa-program-card__copy"><?php echo $body; ?></p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"ciwa-program-card__more"} -->
+			<p class="ciwa-program-card__more"><a href="#programs">Learn More &rarr;</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+	<?php
+}
 ?>
 <!-- wp:group {"align":"full","className":"ciwa-programs","backgroundColor":"surface-cream","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull ciwa-programs has-surface-cream-background-color has-background">
@@ -28,36 +65,23 @@ $programs = array(
 	<p class="has-text-align-center ciwa-programs-sub"><?php esc_html_e( 'CIWA offers a wide range of programs designed to help immigrant and refugee women build confidence, develop skills, and thrive in Canada.', 'ciwa-final' ); ?></p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:group {"align":"wide","className":"ciwa-programs-grid","layout":{"type":"grid","columnCount":2}} -->
-	<div class="wp-block-group alignwide ciwa-programs-grid">
-	<?php foreach ( $programs as $p ) : ?>
-		<!-- wp:group {"className":"ciwa-program ciwa-program-<?php echo esc_attr( $p['col'] ); ?>","layout":{"type":"constrained"}} -->
-		<div class="wp-block-group ciwa-program ciwa-program-<?php echo esc_attr( $p['col'] ); ?>">
+	<!-- wp:columns {"align":"wide","className":"ciwa-programs-grid"} -->
+	<div class="wp-block-columns alignwide ciwa-programs-grid">
 
-			<!-- wp:group {"className":"ciwa-program-head","layout":{"type":"flex","flexWrap":"nowrap"}} -->
-			<div class="wp-block-group ciwa-program-head">
-				<!-- wp:image {"sizeSlug":"full","className":"ciwa-program-icon"} -->
-				<figure class="wp-block-image size-full ciwa-program-icon"><img src="<?php echo esc_url( $p['icon'] ); ?>" alt=""/></figure>
-				<!-- /wp:image -->
-				<!-- wp:heading {"level":3,"className":"ciwa-program-title"} -->
-				<h3 class="wp-block-heading ciwa-program-title"><?php echo $p['title']; ?></h3>
-				<!-- /wp:heading -->
-			</div>
-			<!-- /wp:group -->
-
-			<!-- wp:paragraph {"className":"ciwa-program-copy"} -->
-			<p class="ciwa-program-copy"><?php echo esc_html( $p['body'] ); ?></p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:paragraph {"className":"ciwa-program-more"} -->
-			<p class="ciwa-program-more"><a href="#programs">Learn More &rarr;</a></p>
-			<!-- /wp:paragraph -->
-
+		<!-- wp:column {"className":"ciwa-programs-col"} -->
+		<div class="wp-block-column ciwa-programs-col">
+		<?php foreach ( $col_left as $p ) ciwa_emit_program_card( $p ); ?>
 		</div>
-		<!-- /wp:group -->
-	<?php endforeach; ?>
+		<!-- /wp:column -->
+
+		<!-- wp:column {"className":"ciwa-programs-col"} -->
+		<div class="wp-block-column ciwa-programs-col">
+		<?php foreach ( $col_right as $p ) ciwa_emit_program_card( $p ); ?>
+		</div>
+		<!-- /wp:column -->
+
 	</div>
-	<!-- /wp:group -->
+	<!-- /wp:columns -->
 
 </div>
 <!-- /wp:group -->

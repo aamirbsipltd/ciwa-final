@@ -4,7 +4,7 @@ Theme URI:
 Author: Pitch Found
 Author URI:
 Description: Canadian Immigrant Women's Association — block theme converted from Figma by Pitch Found.
-Version: 0.9.0
+Version: 0.9.1
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -1760,4 +1760,193 @@ img { max-width: 100%; height: auto; }
 	.ciwa-ig .ciwa-ig-grid { grid-template-columns: repeat(2, 1fr) !important; }
 	.ciwa-contact .ciwa-contact-grid { flex-direction: column !important; }
 	.ciwa-how-help .ciwa-help-track > .wp-block-column.ciwa-help-card { flex-basis: 88% !important; }
+}
+
+
+/* ============================================================
+   v0.9.1 — Path B fixes: programs grid + voices section.
+   Appended only; nothing above this line was touched.
+   ============================================================ */
+
+/* === Programs grid: 2 columns × 3 cards each ============== */
+.ciwa-programs .wp-block-columns.ciwa-programs-grid {
+	gap: 24px !important;
+	max-width: 1320px;
+	margin: 0 auto !important;
+	align-items: stretch !important;
+}
+.ciwa-programs .ciwa-programs-col {
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 24px !important;
+	padding: 0 !important;
+}
+
+/* === Program card chrome ================================== */
+.ciwa-programs .ciwa-program-card {
+	background: #ffffff;
+	border: 1px solid #e6dce4;
+	border-left: 6px solid var(--ciwa-program-accent, #6a1753);
+	border-radius: 14px;
+	padding: 2rem !important;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 0.75rem;
+	height: 100%;
+	box-sizing: border-box;
+}
+.ciwa-programs .ciwa-program-card--purple { --ciwa-program-accent: #6a1753; }
+.ciwa-programs .ciwa-program-card--pink   { --ciwa-program-accent: #e22371; }
+.ciwa-programs .ciwa-program-card--orange { --ciwa-program-accent: #f68b3c; }
+.ciwa-programs .ciwa-program-card--coral  { --ciwa-program-accent: #ff6e6e; }
+.ciwa-programs .ciwa-program-card--olive  { --ciwa-program-accent: #aaa835; }
+.ciwa-programs .ciwa-program-card--teal   { --ciwa-program-accent: #5bbdad; }
+
+.ciwa-programs .ciwa-program-card__icon { margin: 0 !important; }
+.ciwa-programs .ciwa-program-card__icon img {
+	width: 54px !important;
+	height: 54px !important;
+	display: block;
+	margin: 0 !important;
+}
+.ciwa-programs .ciwa-program-card__title {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 1.5rem !important;
+	font-weight: 400 !important;
+	letter-spacing: -0.01em !important;
+	color: #1a1a1a !important;
+	margin: 0.25rem 0 0.5rem !important;
+	line-height: 1.2 !important;
+	text-transform: uppercase;
+}
+.ciwa-programs .ciwa-program-card__copy {
+	color: #1a1a1a !important;
+	font-size: 0.95rem !important;
+	line-height: 1.55 !important;
+	margin: 0 !important;
+}
+.ciwa-programs .ciwa-program-card__more {
+	margin: auto 0 0 !important;
+	padding-top: 0.75rem;
+	font-size: 1rem !important;
+	font-weight: 600 !important;
+}
+.ciwa-programs .ciwa-program-card__more a {
+	color: var(--ciwa-program-accent, #6a1753) !important;
+	text-decoration: none;
+}
+.ciwa-programs .ciwa-program-card__more a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+	.ciwa-programs .wp-block-columns.ciwa-programs-grid { flex-direction: column !important; }
+}
+
+/* === Voices: 33/66 outer split + nested 2-card row ======== */
+.ciwa-voices .wp-block-columns.ciwa-voices-row {
+	gap: 48px !important;
+	max-width: 1320px;
+	margin: 0 auto !important;
+	align-items: stretch !important;
+}
+.ciwa-voices .ciwa-voices-intro { padding: 0 !important; }
+.ciwa-voices .ciwa-voices-cards { padding: 0 !important; }
+
+.ciwa-voices .ciwa-voices-eyebrow {
+	color: #ff6e6e !important;
+	font-family: var(--wp--preset--font-family--sans) !important;
+	font-size: 0.8rem !important;
+	font-weight: 600 !important;
+	letter-spacing: 0.12em !important;
+	text-transform: uppercase;
+	margin: 0 0 0.5rem !important;
+	opacity: 0.95;
+}
+.ciwa-voices .ciwa-voices-h {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 2.75rem !important;
+	font-weight: 400 !important;
+	color: #ffffff !important;
+	line-height: 1.1 !important;
+	letter-spacing: -0.01em !important;
+	margin: 0 0 1rem !important;
+}
+.ciwa-voices .ciwa-voices-sub {
+	color: #ffffff !important;
+	font-size: 0.95rem !important;
+	line-height: 1.55 !important;
+	margin: 0 0 1.5rem !important;
+	opacity: 0.95;
+}
+/* Strip the orange-circle quote-bubble overlay if any earlier rule painted one
+   on the photos — it's the "vertical artifact on the far left" the brief
+   flagged. Replace with nothing (clean card chrome instead). */
+.ciwa-voices .ciwa-voice-photo::after,
+.ciwa-voices .ciwa-testimonial-card__photo::after { content: none !important; }
+
+.ciwa-voices .wp-block-columns.ciwa-voices-cards-row {
+	gap: 24px !important;
+	margin: 0 !important;
+	align-items: stretch !important;
+}
+.ciwa-voices .ciwa-voices-card-col { padding: 0 !important; }
+
+/* === Testimonial card chrome ============================== */
+.ciwa-voices .ciwa-testimonial-card {
+	background: #ffffff !important;
+	border-radius: 14px !important;
+	padding: 1.5rem !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 0.75rem !important;
+	height: 100%;
+	box-sizing: border-box;
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+}
+.ciwa-voices .ciwa-testimonial-card__photo { margin: 0 !important; }
+.ciwa-voices .ciwa-testimonial-card__photo img {
+	width: 100% !important;
+	height: 220px !important;
+	object-fit: cover;
+	border-radius: 10px;
+	display: block;
+	margin: 0 !important;
+}
+.ciwa-voices .ciwa-testimonial-card__quote {
+	color: #1a1a1a !important;
+	font-size: 0.95rem !important;
+	line-height: 1.55 !important;
+	font-style: italic;
+	margin: 0 !important;
+	flex: 1 1 auto;
+}
+.ciwa-voices .ciwa-testimonial-card__author {
+	font-family: var(--wp--preset--font-family--display) !important;
+	font-size: 1.05rem !important;
+	font-weight: 400 !important;
+	color: #6a1753 !important;
+	letter-spacing: 0.02em !important;
+	text-transform: uppercase;
+	margin: 0.25rem 0 0 !important;
+}
+.ciwa-voices .ciwa-testimonial-card__role {
+	color: #5b5b66 !important;
+	font-size: 0.85rem !important;
+	margin: 0.15rem 0 0 !important;
+}
+
+.ciwa-voices .ciwa-voices-cta .wp-block-button__link {
+	background-color: #f68b3c !important;
+	color: #ffffff !important;
+	padding: 0.85rem 1.5rem !important;
+	border-radius: 0.5rem !important;
+	font-family: var(--wp--preset--font-family--display);
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+	.ciwa-voices .wp-block-columns.ciwa-voices-row { flex-direction: column !important; }
+	.ciwa-voices .wp-block-columns.ciwa-voices-cards-row { flex-direction: column !important; }
 }
