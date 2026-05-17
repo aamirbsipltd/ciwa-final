@@ -31,4 +31,8 @@ COPY --chown=1001:1001 . /opt/bitnami/wordpress/wp-content/themes/ciwa-final/
 COPY docker/bitnami-sync-theme.sh /opt/bitnami/scripts/wordpress/post-init.d/00-ciwa-sync-theme.sh
 RUN chmod +x /opt/bitnami/scripts/wordpress/post-init.d/00-ciwa-sync-theme.sh
 
-USER 1001
+# Run as root so Bitnami's setup scripts can chown the Railway-mounted volume.
+# Railway volumes are root-owned at mount time; Bitnami's default user 1001
+# cannot write wp-config.php into them. Bitnami's entrypoint internally drops
+# privileges to 1001 after permission fixes.
+USER root
