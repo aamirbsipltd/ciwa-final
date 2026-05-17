@@ -1269,22 +1269,48 @@ img { max-width: 100%; height: auto; }
    All visual styling is keyed by .ciwa-* classNames here.
    ============================================================ */
 
-/* === Hero (wp:cover) === */
-.wp-block-cover.ciwa-hero {
+/* === Hero (canonical wp:group with photo bg + ::before gradient overlay) ===
+   Switched away from wp:cover because the cover block's strict save-shape
+   validator kept rejecting our manually-crafted markup. With a plain
+   wp:group, the pattern HTML is the canonical wp-block-group form (no
+   special validation), and we apply the photo background + gradient
+   overlay + content positioning entirely in CSS. */
+.ciwa-hero {
+	position: relative;
 	min-height: 720px !important;
 	padding: 140px 130px !important;
+	background-image: url('assets/img/hero/figma-hero.png');
+	background-size: cover;
+	background-position: 70% 50%;
+	background-repeat: no-repeat;
+	display: flex !important;
 	align-items: center !important;
 	justify-content: flex-start !important;
+	overflow: hidden;
 }
-/* Hero gradient overlay is now applied natively by WP via the cover block's
-   customGradient + dimRatio:100 attributes in patterns/hero.php — no CSS
-   override needed (WP outputs the gradient inline on the __background span). */
-.wp-block-cover.ciwa-hero .wp-block-cover__inner-container {
+.ciwa-hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(95deg, #fafaf0 0%, #fafaf0 55%, rgba(250,250,240,0) 92%);
+	z-index: 1;
+	pointer-events: none;
+}
+.ciwa-hero > * {
 	position: relative;
 	z-index: 2;
 	max-width: 871px;
 	width: 100%;
-	margin: 0;
+	margin: 0 0 1.5rem;
+}
+.ciwa-hero > *:last-child { margin-bottom: 0; }
+.ciwa-hero::after {
+	content: "";
+	position: absolute;
+	bottom: 0; left: 0; right: 0;
+	height: 36px;
+	background: linear-gradient(180deg, #e22371 0 20px, rgba(226,35,113,0.3) 20px 36px);
+	z-index: 3;
 }
 .ciwa-hero .ciwa-hero-title {
 	font-family: var(--wp--preset--font-family--display) !important;
@@ -1326,14 +1352,7 @@ img { max-width: 100%; height: auto; }
 	background-color: #6a1753 !important;
 	background: #6a1753 !important;
 }
-.wp-block-cover.ciwa-hero::after {
-	content: "";
-	position: absolute;
-	bottom: 0; left: 0; right: 0;
-	height: 36px;
-	background: linear-gradient(180deg, #e22371 0 20px, rgba(226,35,113,0.3) 20px 36px);
-	z-index: 3;
-}
+/* (hero ::after bottom-decoration moved up into the hero block above) */
 
 /* === How Help carousel === */
 .ciwa-how-help { padding: 80px 32px !important; }
@@ -1723,7 +1742,7 @@ img { max-width: 100%; height: auto; }
 
 /* === Responsive === */
 @media (max-width: 1100px) {
-	.wp-block-cover.ciwa-hero { padding: 80px 32px !important; }
+	.ciwa-hero { padding: 80px 32px !important; }
 	.ciwa-hero .ciwa-hero-title { font-size: 38px !important; }
 	.ciwa-hero .ciwa-hero-sub { font-size: 17px !important; }
 }
