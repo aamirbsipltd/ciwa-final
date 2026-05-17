@@ -1,15 +1,34 @@
-FROM wordpress:6.3.2-php8.0-apache
+FROM bitnami/wordpress:6.4
 
-# No MPM fiddling. Trust the upstream image's default Apache config.
-# If MPM problems persist with a vanilla install, we'll switch to a
-# non-Apache base entirely (bitnami/wordpress on nginx).
+# Bitnami's image:
+#   - Single container (Apache + PHP-FPM + WP, but their own clean Apache build)
+#   - Auto-installs WordPress from env vars (no install wizard)
+#   - Listens on 8080/8443 (non-root by design — can't bind 80 without privilege)
+#   - Persistent data: /bitnami/wordpress (volume)
+#   - WP install at: /opt/bitnami/wordpress (in-image)
+#
+# Required env vars on Railway (set in Variables tab):
+#   WORDPRESS_DATABASE_HOST         = ${{MySQL.MYSQL_HOST}}
+#   WORDPRESS_DATABASE_PORT_NUMBER  = ${{MySQL.MYSQL_PORT}}
+#   WORDPRESS_DATABASE_USER         = ${{MySQL.MYSQL_USER}}
+#   WORDPRESS_DATABASE_PASSWORD     = ${{MySQL.MYSQL_PASSWORD}}
+#   WORDPRESS_DATABASE_NAME         = ${{MySQL.MYSQL_DATABASE}}
+#   WORDPRESS_USERNAME              = ciwa-admin
+#   WORDPRESS_PASSWORD              = (strong password)
+#   WORDPRESS_EMAIL                 = mehreen.aamir@gmail.com
+#   WORDPRESS_BLOG_NAME             = CIWA
+#
+# Railway Networking: set service port to 8080 (Bitnami's default), NOT 80.
 
-# Bake the theme into the image (NOT into /var/www/html, which is a volume).
-COPY --chown=www-data:www-data . /usr/src/ciwa-final-theme/
+USER root
 
-# Real entrypoint script (copies theme into the live wp-content on each boot).
-COPY docker/entrypoint.sh /usr/local/bin/ciwa-entry.sh
-RUN chmod +x /usr/local/bin/ciwa-entry.sh
+# Bake the theme into bitnami's wp-content. On first boot Bitnami copies
+# wp-content into the /bitnami/wordpress persistent volume.
+COPY --chown=1001:1001 . /opt/bitnami/wordpress/wp-content/themes/ciwa-final/
 
-ENTRYPOINT ["/usr/local/bin/ciwa-entry.sh"]
-CMD ["apache2-foreground"]
+# Sync the theme on every boot, so `git push` redeploys update the theme
+# in the live volume (not just baked into the image).
+COPY docker/bitnami-sync-theme.sh /opt/bitnami/scripts/wordpress/post-init.d/00-ciwa-sync-theme.sh
+RUN chmod +x /opt/bitnami/scripts/wordpress/post-init.d/00-ciwa-sync-theme.sh
+
+USER 1001
