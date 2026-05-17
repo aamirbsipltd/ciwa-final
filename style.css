@@ -4,7 +4,7 @@ Theme URI:
 Author: Pitch Found
 Author URI:
 Description: Canadian Immigrant Women's Association — block theme converted from Figma by Pitch Found.
-Version: 0.8.0
+Version: 0.9.0
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -1276,19 +1276,9 @@ img { max-width: 100%; height: auto; }
 	align-items: center !important;
 	justify-content: flex-start !important;
 }
-/* Hero gradient overlay — applied via wp-block-cover__background (the canonical
-   overlay span at z-index:1, above the photo at z-index:0). WP-core gives that
-   span has-background-dim-0 class (opacity:0), so we hard-override opacity:1
-   AND set the gradient. Use both .has-background-dim-0 selectors so we beat
-   WP's specificity calc (.has-background-dim-0.has-background-dim — 2 classes). */
-.wp-block-cover.ciwa-hero > .wp-block-cover__background,
-.wp-block-cover.ciwa-hero > .wp-block-cover__background.has-background-dim-0,
-.wp-block-cover.ciwa-hero > .wp-block-cover__background.has-background-dim {
-	background: linear-gradient(to right, #fafaf0 0%, #fafaf0 55%, rgba(250,250,240,0.4) 75%, rgba(250,250,240,0) 92%) !important;
-	background-color: transparent !important;
-	opacity: 1 !important;
-	z-index: 1 !important;
-}
+/* Hero gradient overlay is now applied natively by WP via the cover block's
+   customGradient + dimRatio:100 attributes in patterns/hero.php — no CSS
+   override needed (WP outputs the gradient inline on the __background span). */
 .wp-block-cover.ciwa-hero .wp-block-cover__inner-container {
 	position: relative;
 	z-index: 2;
@@ -1314,6 +1304,10 @@ img { max-width: 100%; height: auto; }
 	max-width: 680px;
 }
 .ciwa-hero .ciwa-hero-ctas { gap: 29px !important; }
+/* Hero CTAs — target both .wp-block-button__link AND .wp-element-button so we
+   beat theme.json's elements.button.color.background rule which targets the
+   same anchor via the wp-element-button class. Use background-color (not the
+   shorthand) because that's the property theme.json's element styles set. */
 .ciwa-hero .ciwa-hero-cta-orange .wp-block-button__link,
 .ciwa-hero .ciwa-hero-cta-purple .wp-block-button__link {
 	font-family: var(--wp--preset--font-family--display);
@@ -1322,8 +1316,16 @@ img { max-width: 100%; height: auto; }
 	border-radius: 14px 14px 0 14px !important;
 	color: #fff !important;
 }
-.ciwa-hero .ciwa-hero-cta-orange .wp-block-button__link { background: #f68b3c !important; }
-.ciwa-hero .ciwa-hero-cta-purple .wp-block-button__link { background: #6a1753 !important; }
+.ciwa-hero .ciwa-hero-cta-orange .wp-block-button__link.wp-element-button,
+.ciwa-hero .ciwa-hero-cta-orange > a.wp-block-button__link {
+	background-color: #f68b3c !important;
+	background: #f68b3c !important;
+}
+.ciwa-hero .ciwa-hero-cta-purple .wp-block-button__link.wp-element-button,
+.ciwa-hero .ciwa-hero-cta-purple > a.wp-block-button__link {
+	background-color: #6a1753 !important;
+	background: #6a1753 !important;
+}
 .wp-block-cover.ciwa-hero::after {
 	content: "";
 	position: absolute;

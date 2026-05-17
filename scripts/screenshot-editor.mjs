@@ -86,13 +86,18 @@ const chromeExe = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 // Build cookies arg-string for Chrome's --header-policy... actually just use cdp.
 const chromeProc = execSync; // we'll use spawn from child_process below
 const { spawn } = await import("node:child_process");
+const VIEWPORT_W = parseInt(process.argv[5] || "1920", 10);
+const VIEWPORT_H = parseInt(process.argv[6] || "1080", 10);
+const DPR = parseFloat(process.argv[7] || "2");
+console.log(`  → viewport ${VIEWPORT_W}x${VIEWPORT_H} @ ${DPR}x (matches user retina)`);
 const chrome = spawn(chromeExe, [
 	"--headless=new",
 	"--disable-gpu",
 	"--hide-scrollbars",
 	`--remote-debugging-port=${port}`,
 	`--user-data-dir=${profile}`,
-	"--window-size=1440,2000",
+	`--window-size=${VIEWPORT_W},${VIEWPORT_H}`,
+	`--force-device-scale-factor=${DPR}`,
 	"--no-first-run",
 	"--no-default-browser-check",
 	"about:blank",

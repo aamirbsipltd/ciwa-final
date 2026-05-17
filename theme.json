@@ -38,12 +38,28 @@
         {
           "slug": "display",
           "name": "Aboreto",
-          "fontFamily": "Aboreto, 'Cormorant Garamond', Georgia, serif"
+          "fontFamily": "Aboreto, 'Cormorant Garamond', Georgia, serif",
+          "fontFace": [
+            {
+              "fontFamily": "Aboreto",
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "fontDisplay": "swap",
+              "src": [ "file:./assets/fonts/aboreto-400.woff2" ]
+            }
+          ]
         },
         {
           "slug": "sans",
           "name": "Poppins",
-          "fontFamily": "Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+          "fontFamily": "Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+          "fontFace": [
+            { "fontFamily": "Poppins", "fontStyle": "normal", "fontWeight": "300", "fontDisplay": "swap", "src": [ "file:./assets/fonts/poppins-300.woff2" ] },
+            { "fontFamily": "Poppins", "fontStyle": "normal", "fontWeight": "400", "fontDisplay": "swap", "src": [ "file:./assets/fonts/poppins-400.woff2" ] },
+            { "fontFamily": "Poppins", "fontStyle": "normal", "fontWeight": "500", "fontDisplay": "swap", "src": [ "file:./assets/fonts/poppins-500.woff2" ] },
+            { "fontFamily": "Poppins", "fontStyle": "normal", "fontWeight": "600", "fontDisplay": "swap", "src": [ "file:./assets/fonts/poppins-600.woff2" ] },
+            { "fontFamily": "Poppins", "fontStyle": "normal", "fontWeight": "700", "fontDisplay": "swap", "src": [ "file:./assets/fonts/poppins-700.woff2" ] }
+          ]
         },
         {
           "slug": "mono",

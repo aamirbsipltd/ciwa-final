@@ -21,11 +21,11 @@ if ( ! function_exists( 'ciwa_final_setup' ) ) {
 
 		// Load the theme's frontend stylesheet INSIDE the Gutenberg editor iframe
 		// so blocks render with the same .ciwa-* styling the visitor sees.
-		// Without this, the editor shows unstyled / default-Gutenberg-styled blocks.
-		add_editor_style( array(
-			'https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@300;400;500;600;700&display=swap',
-			'style.css',
-		) );
+		// Fonts are now loaded via theme.json fontFamilies[].fontFace (self-hosted
+		// woff2 in /assets/fonts/), which WP injects into both editor and frontend
+		// — so we no longer need the Google Fonts URL here (and add_editor_style
+		// does not reliably inject absolute URLs as <link> tags into the iframe).
+		add_editor_style( 'style.css' );
 
 		register_block_pattern_category(
 			'ciwa-final',
@@ -36,16 +36,12 @@ if ( ! function_exists( 'ciwa_final_setup' ) ) {
 add_action( 'after_setup_theme', 'ciwa_final_setup' );
 
 function ciwa_final_enqueue_assets() {
-	wp_enqueue_style(
-		'ciwa-final-fonts',
-		'https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:wght@300;400;500;600;700&display=swap',
-		array(),
-		null
-	);
+	// Fonts come from theme.json fontFace declarations (self-hosted woff2);
+	// WP auto-enqueues those on both frontend + editor. No separate handle needed.
 	wp_enqueue_style(
 		'ciwa-final-style',
 		get_stylesheet_uri(),
-		array( 'ciwa-final-fonts' ),
+		array(),
 		wp_get_theme()->get( 'Version' )
 	);
 }
