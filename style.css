@@ -4,7 +4,7 @@ Theme URI:
 Author: Pitch Found
 Author URI:
 Description: Canadian Immigrant Women's Association — block theme converted from Figma by Pitch Found.
-Version: 0.9.3
+Version: 0.9.4
 Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -1947,6 +1947,28 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 900px) {
 	.ciwa-voices .wp-block-columns.ciwa-voices-row { flex-direction: column !important; }
 	.ciwa-voices .wp-block-columns.ciwa-voices-cards-row { flex-direction: column !important; }
+}
+
+/* ============================================================
+   v0.9.4 — Instagram tiles: kill the empty space below each photo.
+   The grid was set to `height: 540px` (line 687) and each tile figure
+   stretched to fill that, but the img inside is `height: 340px`
+   (line 1716) — leaving 200px of empty cream framed by the orange
+   figure border at the bottom of every tile. Let grid + figure
+   auto-size to image content; drop the duplicate img-level orange
+   border so we don't double-stroke.
+   ============================================================ */
+.ciwa-ig .ciwa-ig-grid {
+	height: auto !important;
+	align-items: start !important;
+}
+.ciwa-ig .ciwa-ig-tile {
+	height: auto !important;
+	line-height: 0;
+}
+.ciwa-ig .ciwa-ig-tile img {
+	border: none !important;
+	border-radius: 28px !important;
 }
 
 /* ============================================================
